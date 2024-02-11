@@ -204,12 +204,12 @@
                                 <p>School Fees</p>
                             </a>
                         </li> -->
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="tuition_plan.php" class="nav-link <?php echo $title == 'Tuition Plan' ? 'active' : '' ?>">
                                 <i class="fa fa-list-ul nav-icon"></i>
                                 <p>Tuition Plan</p>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- <li class="nav-item">
                             <a href="scholarship.php" class="nav-link <?php echo $title == 'Scholarship' ? 'active' : '' ?>">
                                 <i class="fa fa-percentage nav-icon"></i>
