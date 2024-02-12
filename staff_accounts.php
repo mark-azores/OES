@@ -74,7 +74,7 @@ include('footer.php');
                             <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Fullname" required />
                         </div>
                         <div class="form-group col-12 col-md-6 ">
-                            <input type="text" name="username" id="username" class="form-control" placeholder="Username" required />
+                            <input type="email" name="username" id="username" class="form-control" placeholder="Username" required />
                         </div>
                         <div class="form-group col-12 col-md-6 ">
                             <input type="password" name="password" id="password" class="form-control" placeholder="Password"  />
