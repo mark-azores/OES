@@ -197,9 +197,9 @@ else
                 <a href="#"><img alt="Logo" src="assets/logo.png" class="logo" ></a>
             </h2>
             <ul class="nav text-lg text-success text-bold ">
-                <li>
+                <!-- <li>
                     <a href="#">About</a>
-                </li>
+                </li> -->
                 <li>
                     <a href="#admission">Admission</a>
                 </li>
@@ -209,7 +209,7 @@ else
             </ul>
         </header>
 
-        <section class="row pt-5">
+        <!-- <section class="row pt-5">
             <div class="col-12  pt-4 pb-5 ">
                 <div class="row ">
                     <div class="col-12 col-md-4 ">
@@ -279,14 +279,16 @@ else
                         </div>
                     </div>
                     <div class="col-12 col-md-8 ">
-                        <div id="carouselExampleIndicators"  class="carousel slide carousel-size w-100 h-75" data-ride="carousel" >
+                        <div id="carouselExampleIndicators"  class="carousel slide carousel-size w-100 h-75" data-ride="carousel" > -->
                             <!-- <ol class="carousel-indicators">
                                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                             </ol> -->
-                            <div class="carousel-inner " >
+
+
+                            <!-- <div class="carousel-inner " >
                                 <div class="carousel-item active ">
                                     <img class="card-img-top carousel-size w-100 h-100" src="assets/carousel/Frame 1.png" alt="Carousel" >
                                 </div>
@@ -315,7 +317,9 @@ else
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+
             <!-- <div class="col-12 p-3">
                 <div class="row d-flex justify-content-around">
                     <div class="col-12 col-md-3">
@@ -356,9 +360,9 @@ else
                     </div>
                 </div>
             </div> -->
-        </section>
+        <!-- </section> -->
 
-        <section class="pt-2 pt-sm-2" id="admission">
+        <section class="pt-5 pt-sm-5" id="admission">
             <div class="col-12 d-flex justify-content-center">
                 <div class="col-12 col-md-8 pt-5">
                     <form method="post" id="forms">
@@ -612,7 +616,7 @@ else
             </div>
         </section>
 
-        <section class="pt-2" id="scholarship">
+        <section class="pt-5" id="scholarship">
             <div class="col-12 d-flex justify-content-center">
                 <div class="col-12 col-md-8 pt-5 pb-5">
                     <div class="row"> 
