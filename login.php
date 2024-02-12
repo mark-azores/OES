@@ -363,14 +363,14 @@ else
         <!-- </section> -->
 
         <section class="pt-5 pt-sm-5" id="admission">
-            <div class="col-12 d-flex justify-content-center">
-                <div class="col-12 col-md-8 pt-5">
-                    <form method="post" id="forms">
-                        <div class="card elevation-2" style="border-radius: 20px;">
-                            <div class="card-header bg-success " style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
-                                <div class="text-xl text-bold"><i class="fa fa-info-circle"></i> Welcome to Lake Shore Admission.</div> 
-                            </div>
-                            <div class="card-body text-lg">
+    <div class="col-12 d-flex justify-content-center">
+        <div class="col-12 col-md-8 pt-5">
+            <form method="post" id="forms">
+                <div class="card" style="border-radius: 20px; border: none; box-shadow: none;">
+                    <div class="card-header bg-success" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+                        <div class="text-xl text-bold"><i class="fa fa-info-circle"></i> Welcome to Lake Shore Admission.</div> 
+                    </div>
+                    <div class="card-body text-lg">
                                 <div class="row">  
                                     <div class="col-12">
                                         <div class="h3">Instructions:</div>
