@@ -72,9 +72,11 @@ function upload_image($file, $name, $path, $allowed_extension, $extension)
     }
 }
 
+
+require 'assets/class/class.phpmailer.php';
 function send_mail($receipient, $name, $subject, $message)
 {
-	require 'assets/class/class.phpmailer.php';
+	
 
     $title = "Lake Shore Educational Institution";
     $email = 'lseidemo123@gmail.com';

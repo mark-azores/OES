@@ -286,9 +286,7 @@ else
                                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                             </ol> -->
-
-
-                            <!-- <div class="carousel-inner " >
+                            <div class="carousel-inner " >
                                 <div class="carousel-item active ">
                                     <img class="card-img-top carousel-size w-100 h-100" src="assets/carousel/Frame 1.png" alt="Carousel" >
                                 </div>
@@ -317,9 +315,7 @@ else
                         </div>
                     </div>
                 </div>
-            </div> -->
-
-
+            </div>
             <!-- <div class="col-12 p-3">
                 <div class="row d-flex justify-content-around">
                     <div class="col-12 col-md-3">
@@ -620,7 +616,7 @@ else
             <div class="col-12 d-flex justify-content-center">
                 <div class="col-12 col-md-8 pt-5 pb-5">
                     <div class="row"> 
-                        <div class="col-12 text-center bg-success p-2" style="border-radius: 8px;">
+                        <div class="col-12 text-center bg-success p-2" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
                             <span class="text-xl text-bold">Requirements for ESC</span>
                         </div>
                         <div class="col-12 mt-4 mt-sm-5 text-lg ">
