@@ -164,6 +164,9 @@ include('footer.php');
                         </div>  
                         <div class="form-group col-12 col-md-6">
                             <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" required />
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <input type="text" name="lrn" id="lrn" class="form-control" placeholder="LRN" />
                         </div>  
                         <div class="form-group col-12 col-md-6">
                             <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" required />
