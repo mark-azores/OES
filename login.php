@@ -204,7 +204,7 @@ if ($connect == null) {
 
     <div class="wrapper">
 
-        <header>
+        <header style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
             <h2>
                 <a href="#"><img alt="Logo" src="assets/logo.png" class="logo"></a>
             </h2>

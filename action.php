@@ -2878,6 +2878,7 @@ if(isset($_POST['btn_action']))
         $output['last_name'] = $result["last_name"];
         $output['first_name'] = $result["first_name"];
         $output['middle_name'] = $result["middle_name"];
+        $output['lrn'] = $result["lrn"];
         $output['extension_name'] = $result["extension_name"];
         $output['address'] = $result["address"];
         $output['email'] = $result["email"];
@@ -2966,8 +2967,8 @@ if(isset($_POST['btn_action']))
                     student_status = '".trim($_POST["student_status"])."',
                     grade_level = '".trim($_POST["grade_level"])."',
                     section_id = '".trim($_POST["section_id"])."',
-                    last_name = '".trim($_POST["last_name"])."',
                     lrn = '".trim($_POST["lrn"])."',
+                    last_name = '".trim($_POST["last_name"])."',
                     first_name = '".trim($_POST["first_name"])."',
                     middle_name = '".trim($_POST["middle_name"])."',
                     extension_name = '".trim($_POST["extension_name"])."',
