@@ -35,7 +35,7 @@ if ($result) {
 			// data-tuition="'.($row['sf_amount'] + $row['me_amount']).'" -->
 			if (!empty($row["assessment_status"])) {
 				$button = ' &nbsp; 
-				<a class="btn btn-success status elevation-2 pr-3 pl-3" href="#" data-status="Payment" data-strand="' . $row['strand_id'] . '" 
+				<a class="btn btn-success status elevation-2 mt-2 pr-3 pl-3" href="#" data-status="Payment" data-strand="' . $row['strand_id'] . '" 
 				data-grade_level="' . $row['grade_level'] . '" name="status" 
 				
 				data-admission_no="' . $row['admission_no'] . '" 
@@ -43,7 +43,7 @@ if ($result) {
 
 					<i class="fa fa-file-invoice-dollar"></i> Assign
 				</a>
-				<a class="btn btn-success archive elevation-2 pr-3 pl-3" href="#" name="archive" id="' . $row["id"] . '" 
+				<a class="btn btn-success archive elevation-2 mt-2 pr-3 pl-3" href="#" name="archive" id="' . $row["id"] . '" 
 					style="border-radius: 20px;" data-toggle="tooltip" data-placement="top" title="Archive">
 					<i class="fa fa-archive"></i> Archive
 				</a>
@@ -51,11 +51,11 @@ if ($result) {
 				<br><b class="text-success">Assessment</b>: ' . $row["assessment_status"];
 			} else {
 				$button = ' &nbsp; 
-				<a class="btn btn-primary assessment elevation-2 pr-3 pl-3" href="#" data-status="Assessment"  name="assessment"
+				<a class="btn btn-primary assessment elevation-2 mt-2 pr-3 pl-3" href="#" data-status="Assessment"  name="assessment"
 				id="' . $row["id"] . '" style="border-radius: 20px;" data-toggle="tooltip" data-placement="top" title="Assessment">
 					<i class="fa fa-file"></i> Assessment
 				</a>
-				<a class="btn btn-success archive elevation-2 pr-3 pl-3" href="#" name="archive" id="' . $row["id"] . '" 
+				<a class="btn btn-success archive elevation-2 mt-2 pr-3 pl-3" href="#" name="archive" id="' . $row["id"] . '" 
 					style="border-radius: 20px;" data-toggle="tooltip" data-placement="top" title="Archive">
 					<i class="fa fa-archive"></i> Archive
 				</a>

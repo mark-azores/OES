@@ -874,9 +874,8 @@ include('footer.php');
                     $('#grade_level').val(data.grade_level);
 
                     $('#section_id').html(data.section_id);
-
-                    $('#last_name').val(data.last_name);
                     $('#lrn').val(data.lrn);
+                    $('#last_name').val(data.last_name);
                     $('#first_name').val(data.first_name);
                     $('#middle_name').val(data.middle_name);
                     $('#extension_name').val(data.extension_name);

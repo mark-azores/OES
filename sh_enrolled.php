@@ -914,6 +914,7 @@ include('footer.php');
 
                     $('#strand_id').val(data.strand_id);
                     $('#section_id').html(data.section_id);
+                    $('#lrn').val(data.lrn);
 
                     $('#last_name').val(data.last_name);
                     $('#first_name').val(data.first_name);
