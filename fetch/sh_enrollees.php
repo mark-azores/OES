@@ -23,10 +23,10 @@ if ($result) {
 		$button = '';
 		if ($row['status'] == 'Pending') {
 			$button = ' &nbsp; 
-			<a class="btn btn-success status elevation-2 pr-3 pl-3" href="#" data-status="Schedule" name="status" id="' . $row["id"] . '" style="border-radius: 20px;" data-toggle="tooltip" data-placement="top" title="Schedule">
+			<a class="btn btn-success status elevation-2 mt-2 pr-3 pl-3" href="#" data-status="Schedule" name="status" id="' . $row["id"] . '" style="border-radius: 20px;" data-toggle="tooltip" data-placement="top" title="Schedule">
 				<i class="fa fa-calendar-day"></i> Schedule
-			</a>
-			<a class="btn btn-danger mt-2 mt-md-0 status elevation-2 pr-3 pl-3" href="#" data-status="Reject" data-name="' . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] . " " . $row['extension_name'] . '" name="status" id="' . $row["id"] . '" style="border-radius: 20px;" data-toggle="tooltip" data-placement="top" title="Reject">
+			</a><br>
+			<a class="btn btn-danger mt-2 status elevation-2 pr-3 pl-3" href="#" data-status="Reject" data-name="' . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] . " " . $row['extension_name'] . '" name="status" id="' . $row["id"] . '" style="border-radius: 20px;" data-toggle="tooltip" data-placement="top" title="Reject">
 				<i class="fa fa-times-circle"></i> Reject
 			</a>';
 		} else {

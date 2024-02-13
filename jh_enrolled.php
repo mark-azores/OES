@@ -138,6 +138,9 @@ include('footer.php');
                             <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" required />
                         </div>  
                         <div class="form-group col-12 col-md-6">
+                            <input type="text" name="lrn" id="lrn" class="form-control" placeholder="LRN" />
+                        </div>  
+                        <div class="form-group col-12 col-md-6">
                             <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" required />
                         </div>
                         <div class="form-group col-12 col-md-6">
@@ -164,8 +167,8 @@ include('footer.php');
                         <div class="form-group col-12 col-md-6">
                             <input type="text"  name="nationality" id="nationality" class="form-control" placeholder="Nationality" required />
                         </div>
-                        <div class="form-group col-12 col-md-6">
-                            <input type="text" name="last_attended" id="last_attended" class="form-control" placeholder="S.Y. Last Attended" required />
+                        <div class="form-group col-12 col-md-12">
+                            <input type="text" name="last_attended" id="last_attended" class="form-control" placeholder="School Last Attended" required />
                         </div>
                         <div class="form-group col-12 col-md-8">
                             <input type="email" name="email" id="email" class="form-control" placeholder="Email" required />
@@ -873,6 +876,7 @@ include('footer.php');
                     $('#section_id').html(data.section_id);
 
                     $('#last_name').val(data.last_name);
+                    $('#lrn').val(data.lrn);
                     $('#first_name').val(data.first_name);
                     $('#middle_name').val(data.middle_name);
                     $('#extension_name').val(data.extension_name);
