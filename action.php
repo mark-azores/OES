@@ -138,6 +138,7 @@ if(isset($_POST['btn_action']))
                     $password = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT);
                     $update = query($connect, "UPDATE $USER_TABLE SET 
                         fullname = '".trim($_POST["fullname"])."', 
+                        user_email = '".trim($_POST["username"])."',
                         user_name = '".trim($_POST["username"])."', 
                         password = '".$password."'
                     WHERE id = '".$_POST['id']."' ");
@@ -146,6 +147,7 @@ if(isset($_POST['btn_action']))
                 {
                     $update = query($connect, "UPDATE $USER_TABLE SET 
                         fullname = '".trim($_POST["fullname"])."', 
+                        user_email = '".trim($_POST["username"])."', 
                         user_name = '".trim($_POST["username"])."'
                     WHERE id = '".$_POST['id']."' ");
                 }
@@ -1241,80 +1243,74 @@ if(isset($_POST['btn_action']))
                                             <br><br>Thank You, <br>Welcome to Lake Shore Educational Institution, God Bless!
                                             <br> <br><i>This is a system generated email. Do not reply.<i>');
 
-                                            if ($mail) // 
-                                            {
+                                            if ($mail) {
                                                 $output['status'] = true;
                                                 $output['message'] = 'Submitted successfully.';
-
+                                                
                                                 $sql = "SELECT user_email FROM $USER_TABLE";
-
+                                                
                                                 // Execute the query
                                                 $stmt = $connect->query($sql);
-                                            
+                                                
                                                 // Fetch all email addresses into an array
                                                 $emails = $stmt->fetchAll(PDO::FETCH_COLUMN);
-                                            
-                                                // If you want to save all emails into a single variable separated by commas
-                                                $emailsAsString = implode(',', $emails);
-                                            
-                                                // If you want to save the first email into a variable
-                                                $firstEmail = reset($emails); // gets the first element of the array
-    
-    
-                                                send_mail(trim($firstEmail),
-                                                'Registrar', 
-                                                'INCOMING ADMISSION', 
-                                                'Good day Registrar!<br><br>You have received an admission form from a enrollee, please check to process it.
-                                                <br>
-                                                <br>This is the preview of the enrollees registration application, please check it for reference.
-    
-                                                <br><br>
-                                                <b>'.trim($_POST["student_status"]).' Student</b> 
-                                                <br>
-                                                <b>LRN: </b> '.trim($_POST["lrn"]).'
-                                                <br>
-                                                <b>Grade Level: </b> '.trim($_POST["grade_level"]).
-                                                $track.'
-                                                <br>
-                                                <b>Email: </b> '.trim($_POST["email"]).'
-                                                <br>
-                                                <b>Fullname: </b> '.trim($_POST['last_name']).", ".trim($_POST["first_name"])." ".trim($_POST["middle_name"])." ".trim($_POST["extension_name"]).'
-                                                <br>
-                                                <b>Date of Birth: </b> '.trim($_POST["date_birth"]).'
-                                                <br>
-                                                <b>Sex: </b> '.trim($_POST["sex"]).'
-                                                <br>
-                                                <b>Nationality: </b> '.trim($_POST["nationality"]).'
-                                                <br>
-                                                <b>S.Y. Last Attended: </b> '.trim($_POST["last_attended"]).'
-                                                <br>
-                                                <b>Survey: </b> '.trim($_POST["survey"]).'
-                                                <br>
-                                                <b>Contact: </b> '.trim($_POST["contact"]).'
-                                                <br>
-                                                <b>Address: </b> '.trim($_POST["address"]).'
-    
-                                                <br><br>
-                                                <b>Guardian Name: </b> '.trim($_POST["g_fullname"]).'
-                                                <br>
-                                                <b>Contact: </b> '.trim($_POST["g_contact"]).'
-                                                <br>
-                                                <b>Relationsip: </b> '.trim($_POST["g_relationship"]).'
-                                                <br>
-                                                <b>Occupation: </b> '.trim($_POST["g_occupation"]).'
-                                                <br>
-                                                <b>Address: </b> '.trim($_POST["g_address"]).'
-    
-                                                <br>
-    
-                                                <i>This is a system generated email. Do not reply.<i>');
-                                            }
-                                            else 
-                                            {
+                                                
+                                                // Loop through each email address and send the email
+                                                foreach ($emails as $email) {
+                                                    send_mail(trim($email),
+                                                              'Enrollment Staff', 
+                                                              'INCOMING ADMISSION', 
+                                                              'Good day Enrollment Staff!<br><br>You have received an admission form from an enrollee, please check to process it.
+                                                              <br>
+                                                              <br>This is the preview of the enrollee\'s registration application, please check it for reference.
+                                                
+                                                              <br><br>
+                                                              <b>'.trim($_POST["student_status"]).' Student</b> 
+                                                              <br>
+                                                              <b>LRN: </b> '.trim($_POST["lrn"]).'
+                                                              <br>
+                                                              <b>Grade Level: </b> '.trim($_POST["grade_level"]).
+                                                              $track.'
+                                                              <br>
+                                                              <b>Email: </b> '.trim($_POST["email"]).'
+                                                              <br>
+                                                              <b>Fullname: </b> '.trim($_POST['last_name']).", ".trim($_POST["first_name"])." ".trim($_POST["middle_name"])." ".trim($_POST["extension_name"]).'
+                                                              <br>
+                                                              <b>Date of Birth: </b> '.trim($_POST["date_birth"]).'
+                                                              <br>
+                                                              <b>Sex: </b> '.trim($_POST["sex"]).'
+                                                              <br>
+                                                              <b>Nationality: </b> '.trim($_POST["nationality"]).'
+                                                              <br>
+                                                              <b>S.Y. Last Attended: </b> '.trim($_POST["last_attended"]).'
+                                                              <br>
+                                                              <b>Survey: </b> '.trim($_POST["survey"]).'
+                                                              <br>
+                                                              <b>Contact: </b> '.trim($_POST["contact"]).'
+                                                              <br>
+                                                              <b>Address: </b> '.trim($_POST["address"]).'
+                                                
+                                                              <br><br>
+                                                              <b>Guardian Name: </b> '.trim($_POST["g_fullname"]).'
+                                                              <br>
+                                                              <b>Contact: </b> '.trim($_POST["g_contact"]).'
+                                                              <br>
+                                                              <b>Relationsip: </b> '.trim($_POST["g_relationship"]).'
+                                                              <br>
+                                                              <b>Occupation: </b> '.trim($_POST["g_occupation"]).'
+                                                              <br>
+                                                              <b>Address: </b> '.trim($_POST["g_address"]).'
+                                                
+                                                              <br>
+                                                
+                                                              <i>This is a system-generated email. Do not reply.<i>');
+                                                }
+                                            } else {
                                                 $connect->rollBack();
                                                 $output['status'] = false;
                                                 $output['message'] = 'Something went wrong.';
                                             }
+                                            
                                         }
                                         else 
                                         {
