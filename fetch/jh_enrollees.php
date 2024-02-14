@@ -71,7 +71,7 @@ if ($result) {
 
 			$sub_array[] = $image . "<br><b>Admission No.</b>: " . $row['admission_no'];
 
-			$sub_array[] = "" . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] . " " . $row['extension_name'];
+			$sub_array[] = "<b>Name</b>: " . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] . " " . $row['extension_name'];
 			$sub_array[] = "<b>Name</b>: " . $row['g_fullname'];
 
 			// $sub_array[] = "<b>Payment</b>: ".$row['payment_method'];
@@ -102,7 +102,7 @@ if ($result) {
             . "<br><b>Status</b>: " . $row['student_status'];
 			//======================================
 
-			$sub_array[] = "" . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] . " " . $row['extension_name']
+			$sub_array[] = "<b>Name</b>: " . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] . " " . $row['extension_name']
 				. "<br><b>Date of Birth</b>: " . $row['date_birth']
 				. "<br><b>Sex</b>: " . $row['sex']
 				. "<br><b>Email</b>: " . $row['email']
@@ -114,7 +114,7 @@ if ($result) {
 			$sub_array[] = "<b>Name</b>: " . $row['g_fullname']
 				. "<br><b>Contact</b>: " . $row['g_contact']
 				. "<br><b>Relationship</b>: " . $row['g_relationship']
-				. "<br><b>Occupation</b>: " . $row['g_occupation']
+				// . "<br><b>Occupation</b>: " . $row['g_occupation']
 				. "<br><b>Address</b>: " . $row['g_address'];
 
 			// if ($row['payment_method'] == 'Installment')

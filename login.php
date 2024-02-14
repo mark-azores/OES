@@ -383,14 +383,11 @@ if ($connect == null) {
                             <div class="card-body text-lg">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="h3">Instructions:</div>
+                                        <div class="h3"><strong>Notes:</strong></div>
                                         <ol>
-                                            <li>Students must fill-up the form.</li>
-                                            <li>After filing the form, please wait for the status of your admission that
+                                            <li>After filling the form sucessfully, please wait for the status of your admission that
                                                 will be send to your email.</li>
                                             <li><span class="text-danger">*</span> Indicates a required field.</li>
-                                            <li>Upload soft copy of school requirements, allowed image types: .png,
-                                                .jpg, .jpeg.</li>
                                             <!-- <li>Maximum image size is 5mb.</li> -->
                                             <!-- <li>Allowed image types: .png, .jpg</li> -->
                                         </ol>
@@ -577,9 +574,9 @@ if ($connect == null) {
                                                     required />
                                             </div>
                                             <div class="form-group col-12 col-md-4">
-                                                <span>ZIP Code<span class="text-danger">*</span></span>
+                                                <span>ZIP Code<span>
                                                 <input name="zip" id="zip" class="form-control" placeholder=""
-                                                    required />
+                                                     />
                                             </div>
                                             <div class="form-group col-12 col-md-12">
                                                 <hr class="p-0 m-0">
@@ -606,12 +603,12 @@ if ($connect == null) {
                                                 <label class="mt-2 ml-2">Guardian Details</label>
                                                 <hr class="p-0 m-0">
                                             </div>
-                                            <div class="form-group col-12 col-md-3">
-                                                <span>Name of Guardian <span class="text-danger">*</span></span>
+                                            <div class="form-group col-12 col-md-5">
+                                                <span>Full Name of Guardian <span class="text-danger">*</span></span>
                                                 <input type="text" name="g_fullname" id="g_fullname"
                                                     class="form-control" placeholder="" />
                                             </div>
-                                            <div class="form-group col-12 col-md-3">
+                                            <div class="form-group col-12 col-md-4">
                                                 <span>Contact Number<span class="text-danger">*</span></span>
                                                 <input type="number" min="1" name="g_contact" id="g_contact"
                                                     class="form-control no-spinners" maxlength="11"
@@ -623,11 +620,11 @@ if ($connect == null) {
                                                 <input type="text" name="g_relationship" id="g_relationship"
                                                     class="form-control" placeholder="" />
                                             </div>
-                                            <div class="form-group col-12 col-md-3">
+                                            <!-- <div class="form-group col-12 col-md-3">
                                                 <span>Occupation <span class="text-danger">*</span></span>
                                                 <input type="text" name="g_occupation" id="g_occupation"
                                                     class="form-control" placeholder="" />
-                                            </div>
+                                            </div> -->
                                             <div class="form-group col-12 col-md-12">
                                                 <div class="icheck-primary d-inline">
                                                     <input type="checkbox" id="checkboxPrimary1">
@@ -891,11 +888,11 @@ if ($connect == null) {
                 $('#barangay').attr('required', true).attr('disabled', false);
                 $('#city').attr('required', true).attr('disabled', false);
                 $('#province').attr('required', true).attr('disabled', false);
-                $('#zip').attr('required', true).attr('disabled', false);
+                $('#zip').attr('required', false).attr('disabled', false);
                 $('#g_fullname').attr('disabled', false); // .attr('required', true)
                 $('#g_contact').attr('disabled', false);
                 $('#g_relationship').attr('disabled', false);
-                $('#g_occupation').attr('disabled', false);
+                // $('#g_occupation').attr('disabled', false);
                 $('#g_address').attr('disabled', false);
             }
 
@@ -920,7 +917,7 @@ if ($connect == null) {
                 $('#g_fullname').attr('disabled', true); // .attr('required', false)
                 $('#g_contact').attr('disabled', true);
                 $('#g_relationship').attr('disabled', true);
-                $('#g_occupation').attr('disabled', true);
+                // $('#g_occupation').attr('disabled', true);
                 $('#g_address').attr('disabled', true);
             }
 
@@ -1013,7 +1010,7 @@ if ($connect == null) {
                     $('#g_fullname').removeAttr('required', 'required');
                     $('#g_contact').removeAttr('required', 'required');
                     $('#g_relationship').removeAttr('required', 'required');
-                    $('#g_occupation').removeAttr('required', 'required');
+                    // $('#g_occupation').removeAttr('required', 'required');
                     $('#g_address').removeAttr('required', 'required');
                 }
             });
@@ -1030,7 +1027,7 @@ if ($connect == null) {
                     $('#g_fullname').attr('required', 'required');
                     $('#g_contact').attr('required', 'required');
                     $('#g_relationship').attr('required', 'required');
-                    $('#g_occupation').attr('required', 'required');
+                    // $('#g_occupation').attr('required', 'required');
                     $('#g_address').attr('required', 'required');
                 } else {
                     $('#action').attr('disabled', 'disabled');
@@ -1072,7 +1069,7 @@ if ($connect == null) {
                                 $('#g_fullname').removeAttr('required', 'required');
                                 $('#g_contact').removeAttr('required', 'required');
                                 $('#g_relationship').removeAttr('required', 'required');
-                                $('#g_occupation').removeAttr('required', 'required');
+                                // $('#g_occupation').removeAttr('required', 'required');
                                 $('#g_address').removeAttr('required', 'required');
                             }
                             else {

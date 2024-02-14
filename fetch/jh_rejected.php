@@ -63,7 +63,7 @@ if ($result)
 			$sub_array[] = "<b>Name</b>: ".$row['g_fullname']
 			."<br><b>Contact</b>: ".$row['g_contact']
 			."<br><b>Relationship</b>: ".$row['g_relationship']
-			."<br><b>Occupation</b>: ".$row['g_occupation']
+			// ."<br><b>Occupation</b>: ".$row['g_occupation']
 			."<br><b>Address</b>: ".$row['g_address'];
 		
 			// if ($row['payment_method'] == 'Installment')

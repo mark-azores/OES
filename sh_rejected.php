@@ -58,7 +58,7 @@ include('sidebar.php');
                                         <th>ADMISSION</th>
                                         <th>APPLICANT DETAILS</th>
                                         <th>GUARDIAN DETAILS</th>
-                                        <th>PAYMENT DETAILS</th>
+                                        <!-- <th>PAYMENT DETAILS</th> -->
                                         <th>DATE ADMISSION</th>
                                         <th>TIME ADMISSION</th>
                                     </tr>

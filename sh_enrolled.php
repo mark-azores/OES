@@ -223,9 +223,9 @@ include('footer.php');
                         <div class="form-group col-12 col-md-6">
                             <input type="text" name="g_relationship" id="g_relationship" class="form-control" placeholder="Relationship" required />
                         </div>
-                        <div class="form-group col-12 col-md-6">
+                        <!-- <div class="form-group col-12 col-md-6">
                             <input type="text" name="g_occupation" id="g_occupation" class="form-control" placeholder="Occupation" required />
-                        </div>
+                        </div> -->
                         <div class="form-group col-12 col-md-12">
                             <textarea name="g_address" id="g_address" class="form-control" placeholder="Address" required ></textarea>
                         </div>
@@ -932,7 +932,7 @@ include('footer.php');
                     $('#g_fullname').val(data.g_fullname);
                     $('#g_contact').val(data.g_contact);
                     $('#g_relationship').val(data.g_relationship);
-                    $('#g_occupation').val(data.g_occupation);
+                    // $('#g_occupation').val(data.g_occupation);
                     $('#g_address').val(data.g_address);
 
                     $('#addModal').modal('show');
