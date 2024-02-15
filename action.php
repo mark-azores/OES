@@ -756,8 +756,8 @@ if(isset($_POST['btn_action']))
             $school_year = $sy["school_year"];
             $sem = fetch_row($connect, "SELECT * FROM $SEM_TABLE WHERE status = 'Active' ");
             $semester = $sem["semester"];
-            if ($_FILES["file"]["size"] !== 0)
-            {
+            // if ($_FILES["file"]["size"] !== 0)
+            // {
                 if (trim($_POST["student_status"]) == 'New' || trim($_POST["student_status"]) == 'Transferee')
                 {
                     // validate lrn, fullname, email
@@ -788,7 +788,7 @@ if(isset($_POST['btn_action']))
                                 $output['status'] = false;
                                 $output['message'] = 'Email already exist.';
                             }
-                            else
+                            else if ($_FILES["file"]["size"] !== 0)
                             {
                                 $avatar = $_FILES["file"]["name"];
                                 $png = strpos($avatar, 'png');
@@ -1030,7 +1030,226 @@ if(isset($_POST['btn_action']))
                                     }
                                 }
                             }
+                            else
+                            {
+                                $output['status'] = true;
+                                $output['message'] = 'Please upload a recent school ID.';
+
+                                $admission_no = '';
+                                $result = fetch_row($connect, "SELECT * FROM $ADMISSION_TABLE ORDER BY id DESC LIMIT 1");
+                                if ($result)
+                                {
+                                    if ( date('Y') == substr($result['admission_no'], 4, 4) )
+                                    {
+                                        $add = intval(substr($result['admission_no'], 8)) + 1;
+                                        if (strlen($add) == 1) { $add = "00000".$add; }
+                                        if (strlen($add) == 2) { $add = "0000".$add; }
+                                        if (strlen($add) == 3) { $add = "000".$add; }
+                                        if (strlen($add) == 4) { $add = "00".$add; }
+                                        if (strlen($add) == 5) { $add = "0".$add; }
+                                        $admission_no = "ANS-".date('Y').$add;
+                                    } 
+                                    else { $admission_no = "ANS-".date('Y').'000001'; }
+                
+                                }
+                                else { $admission_no = "ANS-".date('Y').'000001';  }
+
+                                $strand_id = '';
+                                $high_school = 'Junior';
+                                if ($_POST["grade_level"] > 10)
+                                {
+                                    $strand_id = $_POST["strand_id"];
+                                    $high_school = 'Senior';
+                                }
+
+                                $create = query($connect, "INSERT INTO $ADMISSION_TABLE (school_year, semester, admission_no, student_status, grade_level, strand_id, 
+                                        lrn, last_name, first_name, middle_name, extension_name, 
+                                        address, email, contact, date_birth, sex, nationality, last_attended, survey, g_fullname, g_contact, g_relationship, g_address,
+                                        status, 
+                                        -- payment_method, sf_plan, sf_amount, me_plan, me_amount, status, visitor_name, 
+                                        -- report_card1, report_card2, report_card_date,
+                                        -- form_1371, form_1372, form_137_date,
+                                        -- psa, psa_date,
+                                        -- good_moral, good_moral_date,
+                                        -- certificate, certificate_date,
+                                        date_created, time_created) VALUES 
+                                        ('".$school_year."', '".$semester."', '".$admission_no."', '".trim($_POST["student_status"])."', '".trim($_POST["grade_level"])."', '".$strand_id."', 
+                                        '".trim($_POST["lrn"])."', '".trim($_POST["last_name"])."', '".trim($_POST["first_name"])."', 
+                                        '".trim($_POST["middle_name"])."', '".trim($_POST["extension_name"])."', 
+                                        '".trim($_POST["address"])."', '".trim($_POST["email"])."', '".trim($_POST["contact"])."', '".trim($_POST["date_birth"])."', '".trim($_POST["sex"])."', 
+                                        '".trim($_POST["nationality"])."', '".trim($_POST["last_attended"])."', '".trim($_POST["survey"])."', '".trim($_POST["g_fullname"])."', '".trim($_POST["g_contact"])."', '".trim($_POST["g_relationship"])."', 
+                                        '".trim($_POST["g_address"])."', 'Pending',
+                                        '".date("m-d-Y")."',
+                                        '".date("h:i A")."') ");
+                                        if ($create == true)
+                                        {
+                                            // $connect->commit();
+                                            // $output['status'] = true;
+                                            // $output['message'] = 'Submitted successfully.';
+                                            
+                                            $track = '';
+                                            if ($strand_id != '')
+                                            {
+                                                $strand = fetch_row($connect,"SELECT * FROM $STRANDS_TABLE WHERE id = '".$strand_id."' " );
+                                                $track = '
+                                                <b>Track: </b> '.trim($strand["strand"]).'
+                                                <br>';
+                                            }
+                                            
+                                            // $requirements = '';
+                                            // if ($report_card1 != '')
+                                            // {
+                                            //     $requirements .= '- SF9 (Report Card)<br>';
+                                            // }
+                                            // if ($form_1371 != '')
+                                            // {
+                                            //     $requirements .= '- SF10 (Form 137)<br>';
+                                            // }
+                                            // if ($psa != '')
+                                            // {
+                                            //     $requirements .= '- PSA Birth Certificate<br>';
+                                            // }
+                                            // if ($good_moral != '')
+                                            // {
+                                            //     $requirements .= '- Good Moral Certificate<br>';
+                                            // }
+                                            // if ($certificate != '')
+                                            // {
+                                            //     $requirements .= '- Certificate of No Financial Obligation';
+                                            // }
+                    
+                                            // send email
+
+                                            $mail = send_mail(trim($_POST["email"]),
+                                            trim($_POST['last_name']).", ".trim($_POST["first_name"])." ".trim($_POST["middle_name"])." ".trim($_POST["extension_name"]), 
+                                            'ADMISSION', 
+                                            'Good day Enrollee!<br><br>We received your admission form and we will check and process it.
+                                            <br>We will email you again about the status of your application.
+                                            <br>This is thye preview of your registration application, please check it for reference.
+
+                                            <br><br>
+                                            <b>'.trim($_POST["student_status"]).' Student</b> 
+                                            <br>
+                                            <b>LRN: </b> '.trim($_POST["lrn"]).'
+                                            <br>
+                                            <b>Grade Level: </b> '.trim($_POST["grade_level"]).
+                                            $track.'
+                                            <br>
+                                            <b>Email: </b> '.trim($_POST["email"]).'
+                                            <br>
+                                            <b>Fullname: </b> '.trim($_POST['last_name']).", ".trim($_POST["first_name"])." ".trim($_POST["middle_name"])." ".trim($_POST["extension_name"]).'
+                                            <br>
+                                            <b>Date of Birth: </b> '.trim($_POST["date_birth"]).'
+                                            <br>
+                                            <b>Sex: </b> '.trim($_POST["sex"]).'
+                                            <br>
+                                            <b>Nationality: </b> '.trim($_POST["nationality"]).'
+                                            <br>
+                                            <b>S.Y. Last Attended: </b> '.trim($_POST["last_attended"]).'
+                                            <br>
+                                            <b>Survey: </b> '.trim($_POST["survey"]).'
+                                            <br>
+                                            <b>Contact: </b> '.trim($_POST["contact"]).'
+                                            <br>
+                                            <b>Address: </b> '.trim($_POST["address"]).'
+
+                                            <br><br>
+                                            <b>Guardian Name: </b> '.trim($_POST["g_fullname"]).'
+                                            <br>
+                                            <b>Contact: </b> '.trim($_POST["g_contact"]).'
+                                            <br>
+                                            <b>Relationship: </b> '.trim($_POST["g_relationship"]).'
+                                            <br>
+                                            
+                                            <br>
+                                            <b>Address: </b> '.trim($_POST["g_address"]).'
+
+                                            <br>
+
+                                            <br><br>You can follow-up by using your admission no. : '.$admission_no.'
+                                            <br><br>Thank You, <br>Welcome to Lake Shore Educational Institution, God Bless!
+                                            <br> <br><i>This is a system generated email. Do not reply.<i>');
+
+                                            if ($mail) {
+                                                $output['status'] = true;
+                                                $output['message'] = 'Submitted successfully.';
+                                                
+                                                $sql = "SELECT user_email FROM $USER_TABLE";
+                                                
+                                                // Execute the query
+                                                $stmt = $connect->query($sql);
+                                                
+                                                // Fetch all email addresses into an array
+                                                $emails = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                                                
+                                                // Loop through each email address and send the email
+                                                foreach ($emails as $email) {
+                                                    send_mail(trim($email),
+                                                              'Enrollment Staff', 
+                                                              'INCOMING ADMISSION', 
+                                                              'Good day Enrollment Staff!<br><br>You have received an admission form from an enrollee, please check to process it.
+                                                              <br>
+                                                              <br>This is the preview of the enrollee\'s registration application, please check it for reference.
+                                                
+                                                              <br><br>
+                                                              <b>'.trim($_POST["student_status"]).' Student</b> 
+                                                              <br>
+                                                              <b>LRN: </b> '.trim($_POST["lrn"]).'
+                                                              <br>
+                                                              <b>Grade Level: </b> '.trim($_POST["grade_level"]).
+                                                              $track.'
+                                                              <br>
+                                                              <b>Email: </b> '.trim($_POST["email"]).'
+                                                              <br>
+                                                              <b>Fullname: </b> '.trim($_POST['last_name']).", ".trim($_POST["first_name"])." ".trim($_POST["middle_name"])." ".trim($_POST["extension_name"]).'
+                                                              <br>
+                                                              <b>Date of Birth: </b> '.trim($_POST["date_birth"]).'
+                                                              <br>
+                                                              <b>Sex: </b> '.trim($_POST["sex"]).'
+                                                              <br>
+                                                              <b>Nationality: </b> '.trim($_POST["nationality"]).'
+                                                              <br>
+                                                              <b>S.Y. Last Attended: </b> '.trim($_POST["last_attended"]).'
+                                                              <br>
+                                                              <b>Survey: </b> '.trim($_POST["survey"]).'
+                                                              <br>
+                                                              <b>Contact: </b> '.trim($_POST["contact"]).'
+                                                              <br>
+                                                              <b>Address: </b> '.trim($_POST["address"]).'
+                                                
+                                                              <br><br>
+                                                              <b>Guardian Name: </b> '.trim($_POST["g_fullname"]).'
+                                                              <br>
+                                                              <b>Contact: </b> '.trim($_POST["g_contact"]).'
+                                                              <br>
+                                                              <b>Relationsip: </b> '.trim($_POST["g_relationship"]).'
+                                                              <br>
+                                                              
+                                                              <br>
+                                                              <b>Address: </b> '.trim($_POST["g_address"]).'
+                                                
+                                                              <br>
+                                                
+                                                              <i>This is a system-generated email. Do not reply.<i>');
+                                                }
+                                            } else {
+                                                $connect->rollBack();
+                                                $output['status'] = false;
+                                                $output['message'] = 'Something went wrong.';
+                                            }
+                                            
+                                        }
+                                        else 
+                                        {
+                                            $connect->rollBack();
+                                            $output['status'] = false;
+                                            $output['message'] = 'Something went wrong.';
+                                        }
+                                
+                            }
+                            
                         }
+
                     }
                 }
                 else
@@ -1084,13 +1303,13 @@ if(isset($_POST['btn_action']))
                                 
 
                                 $upload = upload_image($_FILES["file"], $admission_no.'_avatar', 'assets/avatar/', $file_type, $type);
-                                if ($upload["status"] == false)
+                                if ($upload["status"] == true)
                                 {
-                                    $output['status'] = false;
-                                    $output['message'] = $upload["message"];
-                                }
-                                else
-                                {
+                                //     $output['status'] = false;
+                                //     $output['message'] = $upload["message"];
+                                // }
+                                // else
+                                // {
                                     $avatar = $upload["message"];
                                     $strand_id = '';
                                     $high_school = 'Junior';
@@ -1187,12 +1406,13 @@ if(isset($_POST['btn_action']))
                         $output['message'] = 'LRN does not exist.';
                     }
                 }
-            }
-            else
-            {
-                $output['status'] = false;
-                $output['message'] = 'Please upload a recent school ID.';
-            }
+
+            // }
+            // else
+            // {
+            //     $output['status'] = false;
+            //     $output['message'] = 'Please upload a recent school ID.';
+            // }
         }
         else
         {

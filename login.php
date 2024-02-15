@@ -215,9 +215,9 @@ if ($connect == null) {
                 <li>
                     <a href="#admission">Admission</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#scholarship">Scholarship</a>
-                </li>
+                </li> -->
             </ul>
         </header>
 
@@ -372,7 +372,7 @@ if ($connect == null) {
 
         <section class="pt-5 pt-sm-5" id="admission">
             <div class="col-12 d-flex justify-content-center">
-                <div class="col-12 col-md-8 pt-5">
+                <div class="col-12 col-md-10 pt-5">
                     <form method="post" id="forms">
                         <div class="card" style="border-radius: 20px; border: none; box-shadow: none;">
                             <div class="card-header bg-success"
@@ -385,7 +385,8 @@ if ($connect == null) {
                                     <div class="col-12">
                                         <div class="h3"><strong>Notes:</strong></div>
                                         <ol>
-                                            <li>After filling the form sucessfully, please wait for the status of your admission that
+                                            <li>After filling the form sucessfully, please wait for the status of your
+                                                admission that
                                                 will be send to your email.</li>
                                             <li><span class="text-danger">*</span> Indicates a required field.</li>
                                             <!-- <li>Maximum image size is 5mb.</li> -->
@@ -575,8 +576,8 @@ if ($connect == null) {
                                             </div>
                                             <div class="form-group col-12 col-md-4">
                                                 <span>ZIP Code<span>
-                                                <input name="zip" id="zip" class="form-control" placeholder=""
-                                                     />
+                                                        <input name="zip" id="zip" class="form-control"
+                                                            placeholder="" />
                                             </div>
                                             <div class="form-group col-12 col-md-12">
                                                 <hr class="p-0 m-0">
@@ -641,6 +642,80 @@ if ($connect == null) {
                                     <div class="form-group col-12 col-md-12">
                                         <hr class="p-0 m-0">
                                     </div>
+
+                                    <!-- <div class="col-12 d-flex justify-content-center page_three"> -->
+                                    <div class="col-12 justify-content-center page_three hidden">
+                                        <div class="row ">
+                                            <div class="col-12 text-center bg-success p-2"
+                                                style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+                                                <span class="text-xl text-bold">Requirements for ESC</span>
+                                            </div>
+                                            <div class="col-12 mt-4 mt-sm-5 text-lg ">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-6">
+                                                        <div class="col-12 border border-dark p-2 p-sm-4"
+                                                            style="border-radius: 8px;">
+                                                            <label class="text-bold mt-2 mt-sm-0">*Requirements for
+                                                                Incoming Grade 7
+                                                                Only</label>
+                                                            <ol>
+                                                                <li>Accomplished ESC Application Form.</li>
+                                                                <li>Accomplished ESC Grantee Enrolment Contract.</li>
+                                                                <li>2 pieces 2X2 latest ID picture with white
+                                                                    background.</li>
+                                                                <li>PSA Birth Certificate (original and photo copy)</li>
+                                                                <li>Proof of Income (Certificate of Employment)</li>
+                                                                <li>Income Tax Return (ITR)</li>
+                                                                <li>Affidavit of No Fixed Income (notarized)</li>
+                                                                <li>Affidavit of No Income (notarized)</li>
+                                                            </ol>
+                                                            <label class="mt-4">*Requirements for Incoming Grade 8 to 12
+                                                                (Any
+                                                                Strand)</label>
+                                                            <ol>
+                                                                <li>Accomplished ESC Grantee Enrolment Contract.</li>
+                                                                <li>2 pieces 2X2 latest ID picture with white
+                                                                    background.</li>
+                                                                <li>PSA Birth Certificate (original and photo copy)</li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6">
+                                                        <div class="col-12 border border-dark p-2 p-sm-4 mt-4 mt-sm-0"
+                                                            style="border-radius: 8px;">
+                                                            <label class="text-bold mt-2 mt-sm-0">*ELIGIBILITY</label>
+                                                            <ul>
+                                                                <li>Incoming Grade 7 student; Elementary (Grade 6)
+                                                                    graduate from a Public or
+                                                                    Private DepEd Recognized Elementary School</li>
+                                                                <li>Incoming Grade 8 to 10 who are ESC Grantees (Grade
+                                                                    7) from the previous
+                                                                    school</li>
+                                                                <li>Filipino citizen</li>
+                                                            </ul>
+                                                            <label class="">*The grant is subject to termination if a
+                                                                grantee does any of
+                                                                the following conditions:</label>
+                                                            <ul>
+                                                                <li>Drops out for non-health reasons in the middle of
+                                                                    the school year;</li>
+                                                                <li>Does not re-enroll for the coming school year;</li>
+                                                                <li>Fails to be promoted to the next grade level or is
+                                                                    retained at the same
+                                                                    grade level;</li>
+                                                                <li>Is suspended for more than two (2) weeks, dismissed
+                                                                    or expelled by the
+                                                                    school for disciplinary reasons; or</li>
+                                                                <li>Transfers to a non-ESC-participating JHS.</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- </div> -->
+
                                     <div class="form-group col-12 col-md-12">
                                         <input type="hidden" name="student_status" id="student_status" />
                                         <input type="hidden" name="btn_action" id="btn_action"
@@ -660,69 +735,8 @@ if ($connect == null) {
             </div>
         </section>
 
-        <section class="pt-5" id="scholarship">
-            <div class="col-12 d-flex justify-content-center">
-                <div class="col-12 col-md-8 pt-5 pb-5">
-                    <div class="row">
-                        <div class="col-12 text-center bg-success p-2"
-                            style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
-                            <span class="text-xl text-bold">Requirements for ESC</span>
-                        </div>
-                        <div class="col-12 mt-4 mt-sm-5 text-lg ">
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <div class="col-12 border border-dark p-2 p-sm-4" style="border-radius: 8px;">
-                                        <label class="text-bold mt-2 mt-sm-0">*Requirements for Incoming Grade 7
-                                            Only</label>
-                                        <ol>
-                                            <li>Accomplished ESC Application Form.</li>
-                                            <li>Accomplished ESC Grantee Enrolment Contract.</li>
-                                            <li>2 pieces 2X2 latest ID picture with white background.</li>
-                                            <li>PSA Birth Certificate (original and photo copy)</li>
-                                            <li>Proof of Income (Certificate of Employment)</li>
-                                            <li>Income Tax Return (ITR)</li>
-                                            <li>Affidavit of No Fixed Income (notarized)</li>
-                                            <li>Affidavit of No Income (notarized)</li>
-                                        </ol>
-                                        <label class="mt-4">*Requirements for Incoming Grade 8 to 12 (Any
-                                            Strand)</label>
-                                        <ol>
-                                            <li>Accomplished ESC Grantee Enrolment Contract.</li>
-                                            <li>2 pieces 2X2 latest ID picture with white background.</li>
-                                            <li>PSA Birth Certificate (original and photo copy)</li>
-                                        </ol>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="col-12 border border-dark p-2 p-sm-4 mt-4 mt-sm-0"
-                                        style="border-radius: 8px;">
-                                        <label class="text-bold mt-2 mt-sm-0">*ELIGIBILITY</label>
-                                        <ul>
-                                            <li>Incoming Grade 7 student; Elementary (Grade 6) graduate from a Public or
-                                                Private DepEd Recognized Elementary School</li>
-                                            <li>Incoming Grade 8 to 10 who are ESC Grantees (Grade 7) from the previous
-                                                school</li>
-                                            <li>Filipino citizen</li>
-                                        </ul>
-                                        <label class="">*The grant is subject to termination if a grantee does any of
-                                            the following conditions:</label>
-                                        <ul>
-                                            <li>Drops out for non-health reasons in the middle of the school year;</li>
-                                            <li>Does not re-enroll for the coming school year;</li>
-                                            <li>Fails to be promoted to the next grade level or is retained at the same
-                                                grade level;</li>
-                                            <li>Is suspended for more than two (2) weeks, dismissed or expelled by the
-                                                school for disciplinary reasons; or</li>
-                                            <li>Transfers to a non-ESC-participating JHS.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- <section class="pt-5" id="scholarship"> -->
+        <!-- </section> -->
 
     </div>
 
@@ -1010,25 +1024,37 @@ if ($connect == null) {
                     $('#g_fullname').removeAttr('required', 'required');
                     $('#g_contact').removeAttr('required', 'required');
                     $('#g_relationship').removeAttr('required', 'required');
-                    // $('#g_occupation').removeAttr('required', 'required');
+                    //$('#g_occupation').removeAttr('required','required');
                     $('#g_address').removeAttr('required', 'required');
+                } else if (steps == 2) {
+                    $('.page_two').removeClass('hidden');
+                    $('.page_three').addClass('hidden');
+                    steps = 1;
+                    $('#action').html('<i class="fa fa-arrow-right text-white"></i> Next');
                 }
             });
 
             let steps = 0;
+
             $(document).on('submit', '#forms', function (event) {
                 event.preventDefault();
                 if (steps == 0) {
                     $('.page_one').addClass('hidden');
                     $('.page_two').removeClass('hidden');
+                    $('.page_three').addClass('hidden');
                     $('#btn_prev').removeClass('hidden');
                     steps = 1;
-                    $('#action').html('<i class="fa fa-save text-white"></i> Submit');
+                    $('#action').html('<i class="fa fa-arrow-right text-white"></i> Next');
                     $('#g_fullname').attr('required', 'required');
                     $('#g_contact').attr('required', 'required');
                     $('#g_relationship').attr('required', 'required');
                     // $('#g_occupation').attr('required', 'required');
                     $('#g_address').attr('required', 'required');
+                } else if (steps == 1) {
+                    $('.page_two').addClass('hidden');
+                    $('.page_three').removeClass('hidden');
+                    steps = 2;
+                    $('#action').html('<i class="fa fa-save text-white"></i> Submit');
                 } else {
                     $('#action').attr('disabled', 'disabled');
                     $.ajax({
@@ -1054,6 +1080,7 @@ if ($connect == null) {
                                 $('#btn_prev').addClass('hidden');
                                 $('.page_one').removeClass('hidden');
                                 $('.page_two').addClass('hidden');
+                                $('.page_three').addClass('hidden');
                                 // required
                                 // $('#lrn').attr('required','required');
                                 $('#grade_level').attr('required', 'required');
@@ -1071,23 +1098,24 @@ if ($connect == null) {
                                 $('#g_relationship').removeAttr('required', 'required');
                                 // $('#g_occupation').removeAttr('required', 'required');
                                 $('#g_address').removeAttr('required', 'required');
-                            }
-                            else {
+                            } else {
                                 Toast.fire({
                                     icon: 'error',
                                     title: data.message
                                 });
                             }
-                        }, error: function () {
+                        },
+                        error: function () {
                             $('#action').attr('disabled', false);
                             Toast.fire({
                                 icon: 'error',
                                 title: 'Something went wrong3.'
                             });
                         }
-                    })
+                    });
                 }
             });
+
 
             $('#date_births').datetimepicker({
                 format: 'MM-DD-YYYY'
