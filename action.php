@@ -756,8 +756,8 @@ if(isset($_POST['btn_action']))
             $school_year = $sy["school_year"];
             $sem = fetch_row($connect, "SELECT * FROM $SEM_TABLE WHERE status = 'Active' ");
             $semester = $sem["semester"];
-            if ($_FILES["file"]["size"] !== 0)
-            {
+            // if ($_FILES["file"]["size"] !== 0)
+            // {
                 if (trim($_POST["student_status"]) == 'New' || trim($_POST["student_status"]) == 'Transferee')
                 {
                     // validate lrn, fullname, email
@@ -788,7 +788,7 @@ if(isset($_POST['btn_action']))
                                 $output['status'] = false;
                                 $output['message'] = 'Email already exist.';
                             }
-                            else
+                            else if ($_FILES["file"]["size"] !== 0)
                             {
                                 $avatar = $_FILES["file"]["name"];
                                 $png = strpos($avatar, 'png');
@@ -823,206 +823,7 @@ if(isset($_POST['btn_action']))
                                     }
                                     else { $admission_no = "ANS-".date('Y').'000001';  }
                                 
-                                    // $report_card1 = '';
-                                    // $report_card_date = '';
-                                    // $image = $_FILES["report_card1"]["name"];
-                                    // $png = strpos($image, 'png');
-                                    // $jpg = strpos($image, 'jpg');
-                                    // $jpeg = strpos($image, 'jpeg');
-                                    // $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                    // if ($type == 'false')
-                                    // {
-                                    //     $output['status'] = false;
-                                    //     $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                    //     echo json_encode($output);
-                                    //     return;
-                                    // }
-                                    // $upload = upload_image($_FILES["report_card1"], $admission_no.'_report_card1', 'assets/files/', $file_type, $type);
-                                    // if ($upload["status"] == false)
-                                    // {
-                                    //     $output['status'] = false;
-                                    //     $output['message'] = $upload["message"];
-                                    //     echo json_encode($output);
-                                    //     return;
-                                    // }
-                                    // else
-                                    // {
-                                    //     $report_card1 = $upload["message"];
-                                    //     $report_card_date = date("m-d-Y");
-                                    // }
                                     
-                                    // $report_card2 = '';
-                                    // $image = $_FILES["report_card2"]["name"];
-                                    // $png = strpos($image, 'png');
-                                    // $jpg = strpos($image, 'jpg');
-                                    // $jpeg = strpos($image, 'jpeg');
-                                    // $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                    // if ($type == 'false')
-                                    // {
-                                    //     $output['status'] = false;
-                                    //     $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                    //     echo json_encode($output);
-                                    //     return;
-                                    // }
-                                    // $upload = upload_image($_FILES["report_card2"], $admission_no.'_report_card2', 'assets/files/', $file_type, $type);
-                                    // if ($upload["status"] == false)
-                                    // {
-                                    //     $output['status'] = false;
-                                    //     $output['message'] = $upload["message"];
-                                    //     echo json_encode($output);
-                                    //     return;
-                                    // }
-                                    // else
-                                    // {
-                                    //     $report_card2 = $upload["message"];
-                                    // }
-                                    
-                                    // $form_1371 = '';
-                                    // $form_137_date = '';
-                                    // if ($_FILES["form_1371"]["size"] !== 0)
-                                    // {
-                                    //     $image = $_FILES["form_1371"]["name"];
-                                    //     $png = strpos($image, 'png');
-                                    //     $jpg = strpos($image, 'jpg');
-                                    //     $jpeg = strpos($image, 'jpeg');
-                                    //     $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                    //     if ($type == 'false')
-                                    //     {
-                                    //         $output['status'] = false;
-                                    //         $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                    //         echo json_encode($output);
-                                    //         return;
-                                    //     }
-                                    //     $upload = upload_image($_FILES["form_1371"], $admission_no.'_form_1371', 'assets/files/', $file_type, $type);
-                                    //     if ($upload["status"] == false)
-                                    //     {
-                                    //         $output['status'] = false;
-                                    //         $output['message'] = $upload["message"];
-                                    //         echo json_encode($output);
-                                    //         return;
-                                    //     }
-                                    //     else
-                                    //     {
-                                    //         $form_1371 = $upload["message"];
-                                    //         $form_137_date = date("m-d-Y");
-                                    //     }
-                                    // }
-                                    
-                                    // $form_1372 = '';
-                                    // if ($_FILES["form_1372"]["size"] !== 0)
-                                    // {
-                                    //     $image = $_FILES["form_1372"]["name"];
-                                    //     $png = strpos($image, 'png');
-                                    //     $jpg = strpos($image, 'jpg');
-                                    //     $jpeg = strpos($image, 'jpeg');
-                                    //     $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                    //     if ($type == 'false')
-                                    //     {
-                                    //         $output['status'] = false;
-                                    //         $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                    //         echo json_encode($output);
-                                    //         return;
-                                    //     }
-                                    //     $upload = upload_image($_FILES["form_1372"], $admission_no.'_form_1372', 'assets/files/', $file_type, $type);
-                                    //     if ($upload["status"] == false)
-                                    //     {
-                                    //         $output['status'] = false;
-                                    //         $output['message'] = $upload["message"];
-                                    //         echo json_encode($output);
-                                    //         return;
-                                    //     }
-                                    //     else
-                                    //     {
-                                    //         $form_1372 = $upload["message"];
-                                    //     }
-                                    // }
-                                    
-                                    // $psa = '';
-                                    // $psa_date = '';
-                                    // $image = $_FILES["psa"]["name"];
-                                    // $png = strpos($image, 'png');
-                                    // $jpg = strpos($image, 'jpg');
-                                    // $jpeg = strpos($image, 'jpeg');
-                                    // $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                    // if ($type == 'false')
-                                    // {
-                                    //     $output['status'] = false;
-                                    //     $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                    //     echo json_encode($output);
-                                    //     return;
-                                    // }
-                                    // $upload = upload_image($_FILES["psa"], $admission_no.'_psa', 'assets/files/', $file_type, $type);
-                                    // if ($upload["status"] == false)
-                                    // {
-                                    //     $output['status'] = false;
-                                    //     $output['message'] = $upload["message"];
-                                    //     echo json_encode($output);
-                                    //     return;
-                                    // }
-                                    // else
-                                    // {
-                                    //     $psa = $upload["message"];
-                                    //     $psa_date = date("m-d-Y");
-                                    // }
-                                    
-                                    // $good_moral = '';
-                                    // $good_moral_date = '';
-                                    // if ($_FILES["good_moral"]["size"] !== 0)
-                                    // {
-                                    //     $image = $_FILES["good_moral"]["name"];
-                                    //     $png = strpos($image, 'png');
-                                    //     $jpg = strpos($image, 'jpg');
-                                    //     $jpeg = strpos($image, 'jpeg');
-                                    //     $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                    //     if ($type == 'false')
-                                    //     {
-                                    //         $output['status'] = false;
-                                    //         $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                    //         echo json_encode($output);
-                                    //         return;
-                                    //     }
-                                    //     $upload = upload_image($_FILES["good_moral"], $admission_no.'_good_moral', 'assets/files/', $file_type, $type);
-                                    //     if ($upload["status"] == false)
-                                    //     {
-                                    //         $output['status'] = false;
-                                    //         $output['message'] = $upload["message"];
-                                    //         echo json_encode($output);
-                                    //         return;
-                                    //     }
-                                    //     else
-                                    //     {
-                                    //         $good_moral = $upload["message"];
-                                    //         $good_moral_date = date("m-d-Y");
-                                    //     }
-                                    // }
-                                    
-                                    // $certificate = '';
-                                    // $certificate_date = '';
-                                    // $image = $_FILES["certificate"]["name"];
-                                    // $png = strpos($image, 'png');
-                                    // $jpg = strpos($image, 'jpg');
-                                    // $jpeg = strpos($image, 'jpeg');
-                                    // $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                    // if ($type == 'false')
-                                    // {
-                                    //     $output['status'] = false;
-                                    //     $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                    //     echo json_encode($output);
-                                    //     return;
-                                    // }
-                                    // $upload = upload_image($_FILES["certificate"], $admission_no.'_certificate', 'assets/files/', $file_type, $type);
-                                    // if ($upload["status"] == false)
-                                    // {
-                                    //     $output['status'] = false;
-                                    //     $output['message'] = $upload["message"];
-                                    //     echo json_encode($output);
-                                    //     return;
-                                    // }
-                                    // else
-                                    // {
-                                    //     $certificate = $upload["message"];
-                                    //     $certificate_date = date("m-d-Y");
-                                    // }
                     
                                     $upload = upload_image($_FILES["file"], $admission_no.'_avatar', 'assets/avatar/', $file_type, $type);
                                     if ($upload["status"] == false)
@@ -1041,103 +842,11 @@ if(isset($_POST['btn_action']))
                                             $high_school = 'Senior';
                                         }
             
-                                    //     $sf_amount = '0';
-                                    //     $me_amount = '0';
-                                    //     $tp_result = fetch_row($connect,"SELECT * FROM $TP_TABLE WHERE high_school = '".$high_school."' " );
-                                    //     $sf_amount = $tp_result["sf_one_year"];
-                                    //     $me_amount = $tp_result["me_one_year"];
-            
-                                    //     $school_fees = '';
-                                    //     $modules_ebook = '';
-                                    //     $connect->beginTransaction();
-                                    //     if (trim($_POST["payment_method"]) == 'Installment')
-                                    //     {
-                                    //         $school_fees = trim($_POST["school_fees"]);
-                                    //         $modules_ebook = trim($_POST["modules_ebook"]);
-                                    //         if (trim($_POST["school_fees"]) == 'A')
-                                    //         {
-                                    //             $sf_ue_amount = $tp_result["sf_ue_a"];
-                                    //             $sf_aug_amount = $tp_result["sf_aug_a"];
-                                    //             $sf_sep_amount = $tp_result["sf_sep_a"];
-                                    //             $sf_oct_amount = $tp_result["sf_oct_a"];
-                                    //             $sf_nov_amount = $tp_result["sf_nov_a"];
-                                    //             $sf_dec_amount = $tp_result["sf_dec_a"];
-                                    //             $sf_jan_amount = $tp_result["sf_jan_a"];
-                                    //             $sf_feb_amount = $tp_result["sf_feb_a"];
-                                    //             $sf_mar_amount = $tp_result["sf_mar_a"];
-                                    //             $sf_apr_amount = $tp_result["sf_apr_a"];
-                                    //             $sf_may_amount = $tp_result["sf_may_a"];
-                                    //         }
-                                    //         else if (trim($_POST["school_fees"]) == 'B')
-                                    //         {
-                                    //             $sf_ue_amount = $tp_result["sf_ue_b"];
-                                    //             $sf_aug_amount = $tp_result["sf_aug_b"];
-                                    //             $sf_sep_amount = $tp_result["sf_sep_b"];
-                                    //             $sf_oct_amount = $tp_result["sf_oct_b"];
-                                    //             $sf_nov_amount = $tp_result["sf_nov_b"];
-                                    //             $sf_dec_amount = $tp_result["sf_dec_b"];
-                                    //             $sf_jan_amount = $tp_result["sf_jan_b"];
-                                    //             $sf_feb_amount = $tp_result["sf_feb_b"];
-                                    //             $sf_mar_amount = $tp_result["sf_mar_b"];
-                                    //             $sf_apr_amount = $tp_result["sf_apr_b"];
-                                    //             $sf_may_amount = $tp_result["sf_may_b"];
-                                    //         }
-                                    //         else
-                                    //         {
-                                    //             $sf_ue_amount = $tp_result["sf_ue_c"];
-                                    //             $sf_aug_amount = $tp_result["sf_aug_c"];
-                                    //             $sf_sep_amount = $tp_result["sf_sep_c"];
-                                    //             $sf_oct_amount = $tp_result["sf_oct_c"];
-                                    //             $sf_nov_amount = $tp_result["sf_nov_c"];
-                                    //             $sf_dec_amount = $tp_result["sf_dec_c"];
-                                    //             $sf_jan_amount = $tp_result["sf_jan_c"];
-                                    //             $sf_feb_amount = $tp_result["sf_feb_c"];
-                                    //             $sf_mar_amount = $tp_result["sf_mar_c"];
-                                    //             $sf_apr_amount = $tp_result["sf_apr_c"];
-                                    //             $sf_may_amount = $tp_result["sf_may_c"];
-                                    //         }
-                                    //         if (trim($_POST["modules_ebook"]) == 'A')
-                                    //         {
-                                    //             $me_ue_amount = $tp_result["me_ue_a"];
-                                    //             $me_aug_amount = $tp_result["me_aug_a"];
-                                    //             $me_sep_amount = $tp_result["me_sep_a"];
-                                    //             $me_oct_amount = $tp_result["me_oct_a"];
-                                    //             $me_nov_amount = $tp_result["me_nov_a"];
-                                    //             $me_dec_amount = $tp_result["me_dec_a"];
-                                    //             $me_jan_amount = $tp_result["me_jan_a"];
-                                    //             $me_feb_amount = $tp_result["me_feb_a"];
-                                    //             $me_mar_amount = $tp_result["me_mar_a"];
-                                    //             $me_apr_amount = $tp_result["me_apr_a"];
-                                    //             $me_may_amount = $tp_result["me_may_a"];
-                                    //         }
-                                    //         else
-                                    //         {
-                                    //             $me_ue_amount = $tp_result["me_ue_b"];
-                                    //             $me_aug_amount = $tp_result["me_aug_b"];
-                                    //             $me_sep_amount = $tp_result["me_sep_b"];
-                                    //             $me_oct_amount = $tp_result["me_oct_b"];
-                                    //             $me_nov_amount = $tp_result["me_nov_b"];
-                                    //             $me_dec_amount = $tp_result["me_dec_b"];
-                                    //             $me_jan_amount = $tp_result["me_jan_b"];
-                                    //             $me_feb_amount = $tp_result["me_feb_b"];
-                                    //             $me_mar_amount = $tp_result["me_mar_b"];
-                                    //             $me_apr_amount = $tp_result["me_apr_b"];
-                                    //             $me_may_amount = $tp_result["me_may_b"];
-                                    //         }
-                                    //         query($connect, "INSERT INTO $AD_TABLE (admission_no, sf_plan, sf_amount, me_plan, me_amount, sf_ue_amount, sf_aug_amount, sf_sep_amount,
-                                    //         sf_oct_amount, sf_nov_amount, sf_dec_amount, sf_jan_amount, sf_feb_amount, sf_mar_amount, sf_apr_amount, sf_may_amount,
-                                    //         me_ue_amount, me_aug_amount, me_sep_amount, me_oct_amount, me_nov_amount, me_dec_amount, me_jan_amount, me_feb_amount,
-                                    //         me_mar_amount, me_apr_amount, me_may_amount) VALUES 
-                                    //         ('".$admission_no."', '".$school_fees."', '".$sf_amount."', '".$modules_ebook."', '".$me_amount."',
-                                    //         '".$sf_ue_amount."', '".$sf_aug_amount."', '".$sf_sep_amount."', '".$sf_oct_amount."', '".$sf_nov_amount."', '".$sf_dec_amount."',
-                                    //         '".$sf_jan_amount."', '".$sf_feb_amount."', '".$sf_mar_amount."', '".$sf_apr_amount."', '".$sf_may_amount."',
-                                    //         '".$me_ue_amount."', '".$me_aug_amount."', '".$me_sep_amount."', '".$me_oct_amount."', '".$me_nov_amount."', '".$me_dec_amount."',
-                                    //         '".$me_jan_amount."', '".$me_feb_amount."', '".$me_mar_amount."', '".$me_apr_amount."', '".$me_may_amount."' ) ");
-                                    //     }
+                                    
                     
                                         $create = query($connect, "INSERT INTO $ADMISSION_TABLE (school_year, semester, admission_no, avatar, student_status, grade_level, strand_id, 
                                         lrn, last_name, first_name, middle_name, extension_name, 
-                                        address, email, contact, date_birth, sex, nationality, last_attended, survey, g_fullname, g_contact, g_relationship, g_occupation, g_address,
+                                        address, email, contact, date_birth, sex, nationality, last_attended, survey, g_fullname, g_contact, g_relationship, g_address,
                                         status, 
                                         -- payment_method, sf_plan, sf_amount, me_plan, me_amount, status, visitor_name, 
                                         -- report_card1, report_card2, report_card_date,
@@ -1151,7 +860,7 @@ if(isset($_POST['btn_action']))
                                         '".trim($_POST["middle_name"])."', '".trim($_POST["extension_name"])."', 
                                         '".trim($_POST["address"])."', '".trim($_POST["email"])."', '".trim($_POST["contact"])."', '".trim($_POST["date_birth"])."', '".trim($_POST["sex"])."', 
                                         '".trim($_POST["nationality"])."', '".trim($_POST["last_attended"])."', '".trim($_POST["survey"])."', '".trim($_POST["g_fullname"])."', '".trim($_POST["g_contact"])."', '".trim($_POST["g_relationship"])."', 
-                                        '".trim($_POST["g_occupation"])."', '".trim($_POST["g_address"])."', 'Pending',
+                                        '".trim($_POST["g_address"])."', 'Pending',
                                         '".date("m-d-Y")."',
                                         '".date("h:i A")."') ");
                                         if ($create == true)
@@ -1231,9 +940,9 @@ if(isset($_POST['btn_action']))
                                             <br>
                                             <b>Contact: </b> '.trim($_POST["g_contact"]).'
                                             <br>
-                                            <b>Relationsip: </b> '.trim($_POST["g_relationship"]).'
+                                            <b>Relationship: </b> '.trim($_POST["g_relationship"]).'
                                             <br>
-                                            <b>Occupation: </b> '.trim($_POST["g_occupation"]).'
+                                            
                                             <br>
                                             <b>Address: </b> '.trim($_POST["g_address"]).'
 
@@ -1297,7 +1006,7 @@ if(isset($_POST['btn_action']))
                                                               <br>
                                                               <b>Relationsip: </b> '.trim($_POST["g_relationship"]).'
                                                               <br>
-                                                              <b>Occupation: </b> '.trim($_POST["g_occupation"]).'
+                                                              
                                                               <br>
                                                               <b>Address: </b> '.trim($_POST["g_address"]).'
                                                 
@@ -1321,7 +1030,226 @@ if(isset($_POST['btn_action']))
                                     }
                                 }
                             }
+                            else
+                            {
+                                $output['status'] = true;
+                                $output['message'] = 'Please upload a recent school ID.';
+
+                                $admission_no = '';
+                                $result = fetch_row($connect, "SELECT * FROM $ADMISSION_TABLE ORDER BY id DESC LIMIT 1");
+                                if ($result)
+                                {
+                                    if ( date('Y') == substr($result['admission_no'], 4, 4) )
+                                    {
+                                        $add = intval(substr($result['admission_no'], 8)) + 1;
+                                        if (strlen($add) == 1) { $add = "00000".$add; }
+                                        if (strlen($add) == 2) { $add = "0000".$add; }
+                                        if (strlen($add) == 3) { $add = "000".$add; }
+                                        if (strlen($add) == 4) { $add = "00".$add; }
+                                        if (strlen($add) == 5) { $add = "0".$add; }
+                                        $admission_no = "ANS-".date('Y').$add;
+                                    } 
+                                    else { $admission_no = "ANS-".date('Y').'000001'; }
+                
+                                }
+                                else { $admission_no = "ANS-".date('Y').'000001';  }
+
+                                $strand_id = '';
+                                $high_school = 'Junior';
+                                if ($_POST["grade_level"] > 10)
+                                {
+                                    $strand_id = $_POST["strand_id"];
+                                    $high_school = 'Senior';
+                                }
+
+                                $create = query($connect, "INSERT INTO $ADMISSION_TABLE (school_year, semester, admission_no, student_status, grade_level, strand_id, 
+                                        lrn, last_name, first_name, middle_name, extension_name, 
+                                        address, email, contact, date_birth, sex, nationality, last_attended, survey, g_fullname, g_contact, g_relationship, g_address,
+                                        status, 
+                                        -- payment_method, sf_plan, sf_amount, me_plan, me_amount, status, visitor_name, 
+                                        -- report_card1, report_card2, report_card_date,
+                                        -- form_1371, form_1372, form_137_date,
+                                        -- psa, psa_date,
+                                        -- good_moral, good_moral_date,
+                                        -- certificate, certificate_date,
+                                        date_created, time_created) VALUES 
+                                        ('".$school_year."', '".$semester."', '".$admission_no."', '".trim($_POST["student_status"])."', '".trim($_POST["grade_level"])."', '".$strand_id."', 
+                                        '".trim($_POST["lrn"])."', '".trim($_POST["last_name"])."', '".trim($_POST["first_name"])."', 
+                                        '".trim($_POST["middle_name"])."', '".trim($_POST["extension_name"])."', 
+                                        '".trim($_POST["address"])."', '".trim($_POST["email"])."', '".trim($_POST["contact"])."', '".trim($_POST["date_birth"])."', '".trim($_POST["sex"])."', 
+                                        '".trim($_POST["nationality"])."', '".trim($_POST["last_attended"])."', '".trim($_POST["survey"])."', '".trim($_POST["g_fullname"])."', '".trim($_POST["g_contact"])."', '".trim($_POST["g_relationship"])."', 
+                                        '".trim($_POST["g_address"])."', 'Pending',
+                                        '".date("m-d-Y")."',
+                                        '".date("h:i A")."') ");
+                                        if ($create == true)
+                                        {
+                                            // $connect->commit();
+                                            // $output['status'] = true;
+                                            // $output['message'] = 'Submitted successfully.';
+                                            
+                                            $track = '';
+                                            if ($strand_id != '')
+                                            {
+                                                $strand = fetch_row($connect,"SELECT * FROM $STRANDS_TABLE WHERE id = '".$strand_id."' " );
+                                                $track = '
+                                                <b>Track: </b> '.trim($strand["strand"]).'
+                                                <br>';
+                                            }
+                                            
+                                            // $requirements = '';
+                                            // if ($report_card1 != '')
+                                            // {
+                                            //     $requirements .= '- SF9 (Report Card)<br>';
+                                            // }
+                                            // if ($form_1371 != '')
+                                            // {
+                                            //     $requirements .= '- SF10 (Form 137)<br>';
+                                            // }
+                                            // if ($psa != '')
+                                            // {
+                                            //     $requirements .= '- PSA Birth Certificate<br>';
+                                            // }
+                                            // if ($good_moral != '')
+                                            // {
+                                            //     $requirements .= '- Good Moral Certificate<br>';
+                                            // }
+                                            // if ($certificate != '')
+                                            // {
+                                            //     $requirements .= '- Certificate of No Financial Obligation';
+                                            // }
+                    
+                                            // send email
+
+                                            $mail = send_mail(trim($_POST["email"]),
+                                            trim($_POST['last_name']).", ".trim($_POST["first_name"])." ".trim($_POST["middle_name"])." ".trim($_POST["extension_name"]), 
+                                            'ADMISSION', 
+                                            'Good day Enrollee!<br><br>We received your admission form and we will check and process it.
+                                            <br>We will email you again about the status of your application.
+                                            <br>This is thye preview of your registration application, please check it for reference.
+
+                                            <br><br>
+                                            <b>'.trim($_POST["student_status"]).' Student</b> 
+                                            <br>
+                                            <b>LRN: </b> '.trim($_POST["lrn"]).'
+                                            <br>
+                                            <b>Grade Level: </b> '.trim($_POST["grade_level"]).
+                                            $track.'
+                                            <br>
+                                            <b>Email: </b> '.trim($_POST["email"]).'
+                                            <br>
+                                            <b>Fullname: </b> '.trim($_POST['last_name']).", ".trim($_POST["first_name"])." ".trim($_POST["middle_name"])." ".trim($_POST["extension_name"]).'
+                                            <br>
+                                            <b>Date of Birth: </b> '.trim($_POST["date_birth"]).'
+                                            <br>
+                                            <b>Sex: </b> '.trim($_POST["sex"]).'
+                                            <br>
+                                            <b>Nationality: </b> '.trim($_POST["nationality"]).'
+                                            <br>
+                                            <b>S.Y. Last Attended: </b> '.trim($_POST["last_attended"]).'
+                                            <br>
+                                            <b>Survey: </b> '.trim($_POST["survey"]).'
+                                            <br>
+                                            <b>Contact: </b> '.trim($_POST["contact"]).'
+                                            <br>
+                                            <b>Address: </b> '.trim($_POST["address"]).'
+
+                                            <br><br>
+                                            <b>Guardian Name: </b> '.trim($_POST["g_fullname"]).'
+                                            <br>
+                                            <b>Contact: </b> '.trim($_POST["g_contact"]).'
+                                            <br>
+                                            <b>Relationship: </b> '.trim($_POST["g_relationship"]).'
+                                            <br>
+                                            
+                                            <br>
+                                            <b>Address: </b> '.trim($_POST["g_address"]).'
+
+                                            <br>
+
+                                            <br><br>You can follow-up by using your admission no. : '.$admission_no.'
+                                            <br><br>Thank You, <br>Welcome to Lake Shore Educational Institution, God Bless!
+                                            <br> <br><i>This is a system generated email. Do not reply.<i>');
+
+                                            if ($mail) {
+                                                $output['status'] = true;
+                                                $output['message'] = 'Submitted successfully.';
+                                                
+                                                $sql = "SELECT user_email FROM $USER_TABLE";
+                                                
+                                                // Execute the query
+                                                $stmt = $connect->query($sql);
+                                                
+                                                // Fetch all email addresses into an array
+                                                $emails = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                                                
+                                                // Loop through each email address and send the email
+                                                foreach ($emails as $email) {
+                                                    send_mail(trim($email),
+                                                              'Enrollment Staff', 
+                                                              'INCOMING ADMISSION', 
+                                                              'Good day Enrollment Staff!<br><br>You have received an admission form from an enrollee, please check to process it.
+                                                              <br>
+                                                              <br>This is the preview of the enrollee\'s registration application, please check it for reference.
+                                                
+                                                              <br><br>
+                                                              <b>'.trim($_POST["student_status"]).' Student</b> 
+                                                              <br>
+                                                              <b>LRN: </b> '.trim($_POST["lrn"]).'
+                                                              <br>
+                                                              <b>Grade Level: </b> '.trim($_POST["grade_level"]).
+                                                              $track.'
+                                                              <br>
+                                                              <b>Email: </b> '.trim($_POST["email"]).'
+                                                              <br>
+                                                              <b>Fullname: </b> '.trim($_POST['last_name']).", ".trim($_POST["first_name"])." ".trim($_POST["middle_name"])." ".trim($_POST["extension_name"]).'
+                                                              <br>
+                                                              <b>Date of Birth: </b> '.trim($_POST["date_birth"]).'
+                                                              <br>
+                                                              <b>Sex: </b> '.trim($_POST["sex"]).'
+                                                              <br>
+                                                              <b>Nationality: </b> '.trim($_POST["nationality"]).'
+                                                              <br>
+                                                              <b>S.Y. Last Attended: </b> '.trim($_POST["last_attended"]).'
+                                                              <br>
+                                                              <b>Survey: </b> '.trim($_POST["survey"]).'
+                                                              <br>
+                                                              <b>Contact: </b> '.trim($_POST["contact"]).'
+                                                              <br>
+                                                              <b>Address: </b> '.trim($_POST["address"]).'
+                                                
+                                                              <br><br>
+                                                              <b>Guardian Name: </b> '.trim($_POST["g_fullname"]).'
+                                                              <br>
+                                                              <b>Contact: </b> '.trim($_POST["g_contact"]).'
+                                                              <br>
+                                                              <b>Relationsip: </b> '.trim($_POST["g_relationship"]).'
+                                                              <br>
+                                                              
+                                                              <br>
+                                                              <b>Address: </b> '.trim($_POST["g_address"]).'
+                                                
+                                                              <br>
+                                                
+                                                              <i>This is a system-generated email. Do not reply.<i>');
+                                                }
+                                            } else {
+                                                $connect->rollBack();
+                                                $output['status'] = false;
+                                                $output['message'] = 'Something went wrong.';
+                                            }
+                                            
+                                        }
+                                        else 
+                                        {
+                                            $connect->rollBack();
+                                            $output['status'] = false;
+                                            $output['message'] = 'Something went wrong.';
+                                        }
+                                
+                            }
+                            
                         }
+
                     }
                 }
                 else
@@ -1372,215 +1300,16 @@ if(isset($_POST['btn_action']))
                                 }
                                 else { $admission_no = "ANS-".date('Y').'000001';  }
                                 
-                                // $report_card1 = '';
-                                // $report_card_date = '';
-                                // $image = $_FILES["report_card1"]["name"];
-                                // $png = strpos($image, 'png');
-                                // $jpg = strpos($image, 'jpg');
-                                // $jpeg = strpos($image, 'jpeg');
-                                // $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                // if ($type == 'false')
-                                // {
-                                //     $output['status'] = false;
-                                //     $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                //     echo json_encode($output);
-                                //     return;
-                                // }
-                                // $upload = upload_image($_FILES["report_card1"], $admission_no.'_report_card1', 'assets/files/', $file_type, $type);
-                                // if ($upload["status"] == false)
-                                // {
-                                //     $output['status'] = false;
-                                //     $output['message'] = $upload["message"];
-                                //     echo json_encode($output);
-                                //     return;
-                                // }
-                                // else
-                                // {
-                                //     $report_card1 = $upload["message"];
-                                //     $report_card_date = date("m-d-Y");
-                                // }
                                 
-                                // $report_card2 = '';
-                                // $image = $_FILES["report_card2"]["name"];
-                                // $png = strpos($image, 'png');
-                                // $jpg = strpos($image, 'jpg');
-                                // $jpeg = strpos($image, 'jpeg');
-                                // $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                // if ($type == 'false')
-                                // {
-                                //     $output['status'] = false;
-                                //     $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                //     echo json_encode($output);
-                                //     return;
-                                // }
-                                // $upload = upload_image($_FILES["report_card2"], $admission_no.'_report_card2', 'assets/files/', $file_type, $type);
-                                // if ($upload["status"] == false)
-                                // {
-                                //     $output['status'] = false;
-                                //     $output['message'] = $upload["message"];
-                                //     echo json_encode($output);
-                                //     return;
-                                // }
-                                // else
-                                // {
-                                //     $report_card2 = $upload["message"];
-                                // }
-                                
-                                // $form_1371 = '';
-                                // $form_137_date = '';
-                                // if ($_FILES["form_1371"]["size"] !== 0)
-                                // {
-                                //     $image = $_FILES["form_1371"]["name"];
-                                //     $png = strpos($image, 'png');
-                                //     $jpg = strpos($image, 'jpg');
-                                //     $jpeg = strpos($image, 'jpeg');
-                                //     $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                //     if ($type == 'false')
-                                //     {
-                                //         $output['status'] = false;
-                                //         $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                //         echo json_encode($output);
-                                //         return;
-                                //     }
-                                //     $upload = upload_image($_FILES["form_1371"], $admission_no.'_form_1371', 'assets/files/', $file_type, $type);
-                                //     if ($upload["status"] == false)
-                                //     {
-                                //         $output['status'] = false;
-                                //         $output['message'] = $upload["message"];
-                                //         echo json_encode($output);
-                                //         return;
-                                //     }
-                                //     else
-                                //     {
-                                //         $form_1371 = $upload["message"];
-                                //         $form_137_date = date("m-d-Y");
-                                //     }
-                                // }
-                                
-                                // $form_1372 = '';
-                                // if ($_FILES["form_1372"]["size"] !== 0)
-                                // {
-                                //     $image = $_FILES["form_1372"]["name"];
-                                //     $png = strpos($image, 'png');
-                                //     $jpg = strpos($image, 'jpg');
-                                //     $jpeg = strpos($image, 'jpeg');
-                                //     $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                //     if ($type == 'false')
-                                //     {
-                                //         $output['status'] = false;
-                                //         $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                //         echo json_encode($output);
-                                //         return;
-                                //     }
-                                //     $upload = upload_image($_FILES["form_1372"], $admission_no.'_form_1372', 'assets/files/', $file_type, $type);
-                                //     if ($upload["status"] == false)
-                                //     {
-                                //         $output['status'] = false;
-                                //         $output['message'] = $upload["message"];
-                                //         echo json_encode($output);
-                                //         return;
-                                //     }
-                                //     else
-                                //     {
-                                //         $form_1372 = $upload["message"];
-                                //     }
-                                // }
-                                
-                                // $psa = '';
-                                // $psa_date = '';
-                                // $image = $_FILES["psa"]["name"];
-                                // $png = strpos($image, 'png');
-                                // $jpg = strpos($image, 'jpg');
-                                // $jpeg = strpos($image, 'jpeg');
-                                // $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                // if ($type == 'false')
-                                // {
-                                //     $output['status'] = false;
-                                //     $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                //     echo json_encode($output);
-                                //     return;
-                                // }
-                                // $upload = upload_image($_FILES["psa"], $admission_no.'_psa', 'assets/files/', $file_type, $type);
-                                // if ($upload["status"] == false)
-                                // {
-                                //     $output['status'] = false;
-                                //     $output['message'] = $upload["message"];
-                                //     echo json_encode($output);
-                                //     return;
-                                // }
-                                // else
-                                // {
-                                //     $psa = $upload["message"];
-                                //     $psa_date = date("m-d-Y");
-                                // }
-                                
-                                // $good_moral = '';
-                                // $good_moral_date = '';
-                                // if ($_FILES["good_moral"]["size"] !== 0)
-                                // {
-                                //     $image = $_FILES["good_moral"]["name"];
-                                //     $png = strpos($image, 'png');
-                                //     $jpg = strpos($image, 'jpg');
-                                //     $jpeg = strpos($image, 'jpeg');
-                                //     $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                //     if ($type == 'false')
-                                //     {
-                                //         $output['status'] = false;
-                                //         $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                //         echo json_encode($output);
-                                //         return;
-                                //     }
-                                //     $upload = upload_image($_FILES["good_moral"], $admission_no.'_good_moral', 'assets/files/', $file_type, $type);
-                                //     if ($upload["status"] == false)
-                                //     {
-                                //         $output['status'] = false;
-                                //         $output['message'] = $upload["message"];
-                                //         echo json_encode($output);
-                                //         return;
-                                //     }
-                                //     else
-                                //     {
-                                //         $good_moral = $upload["message"];
-                                //         $good_moral_date = date("m-d-Y");
-                                //     }
-                                // }
-                                
-                                // $certificate = '';
-                                // $certificate_date = '';
-                                // $image = $_FILES["certificate"]["name"];
-                                // $png = strpos($image, 'png');
-                                // $jpg = strpos($image, 'jpg');
-                                // $jpeg = strpos($image, 'jpeg');
-                                // $type = $png !== false ? 'png' : ($jpg !== false ? 'jpg' : ($jpeg !== false ? 'jpeg' : 'false'));
-                                // if ($type == 'false')
-                                // {
-                                //     $output['status'] = false;
-                                //     $output['message'] = "Invalid image type, please upload a png, jpg, jpeg.";
-                                //     echo json_encode($output);
-                                //     return;
-                                // }
-                                // $upload = upload_image($_FILES["certificate"], $admission_no.'_certificate', 'assets/files/', $file_type, $type);
-                                // if ($upload["status"] == false)
-                                // {
-                                //     $output['status'] = false;
-                                //     $output['message'] = $upload["message"];
-                                //     echo json_encode($output);
-                                //     return;
-                                // }
-                                // else
-                                // {
-                                //     $certificate = $upload["message"];
-                                //     $certificate_date = date("m-d-Y");
-                                // }
 
                                 $upload = upload_image($_FILES["file"], $admission_no.'_avatar', 'assets/avatar/', $file_type, $type);
-                                if ($upload["status"] == false)
+                                if ($upload["status"] == true)
                                 {
-                                    $output['status'] = false;
-                                    $output['message'] = $upload["message"];
-                                }
-                                else
-                                {
+                                //     $output['status'] = false;
+                                //     $output['message'] = $upload["message"];
+                                // }
+                                // else
+                                // {
                                     $avatar = $upload["message"];
                                     $strand_id = '';
                                     $high_school = 'Junior';
@@ -1590,103 +1319,11 @@ if(isset($_POST['btn_action']))
                                         $high_school = 'Senior';
                                     }
         
-                                    // $sf_amount = '0';
-                                    // $me_amount = '0';
-                                    // $tp_result = fetch_row($connect,"SELECT * FROM $TP_TABLE WHERE high_school = '".$high_school."' " );
-                                    // $sf_amount = $tp_result["sf_one_year"];
-                                    // $me_amount = $tp_result["me_one_year"];
-        
-                                    // $school_fees = '';
-                                    // $modules_ebook = '';
-                                    // $connect->beginTransaction();
-                                    // if (trim($_POST["payment_method"]) == 'Installment')
-                                    // {
-                                    //     $school_fees = trim($_POST["school_fees"]);
-                                    //     $modules_ebook = trim($_POST["modules_ebook"]);
-                                    //     if (trim($_POST["school_fees"]) == 'A')
-                                    //     {
-                                    //         $sf_ue_amount = $tp_result["sf_ue_a"];
-                                    //         $sf_aug_amount = $tp_result["sf_aug_a"];
-                                    //         $sf_sep_amount = $tp_result["sf_sep_a"];
-                                    //         $sf_oct_amount = $tp_result["sf_oct_a"];
-                                    //         $sf_nov_amount = $tp_result["sf_nov_a"];
-                                    //         $sf_dec_amount = $tp_result["sf_dec_a"];
-                                    //         $sf_jan_amount = $tp_result["sf_jan_a"];
-                                    //         $sf_feb_amount = $tp_result["sf_feb_a"];
-                                    //         $sf_mar_amount = $tp_result["sf_mar_a"];
-                                    //         $sf_apr_amount = $tp_result["sf_apr_a"];
-                                    //         $sf_may_amount = $tp_result["sf_may_a"];
-                                    //     }
-                                    //     else if (trim($_POST["school_fees"]) == 'B')
-                                    //     {
-                                    //         $sf_ue_amount = $tp_result["sf_ue_b"];
-                                    //         $sf_aug_amount = $tp_result["sf_aug_b"];
-                                    //         $sf_sep_amount = $tp_result["sf_sep_b"];
-                                    //         $sf_oct_amount = $tp_result["sf_oct_b"];
-                                    //         $sf_nov_amount = $tp_result["sf_nov_b"];
-                                    //         $sf_dec_amount = $tp_result["sf_dec_b"];
-                                    //         $sf_jan_amount = $tp_result["sf_jan_b"];
-                                    //         $sf_feb_amount = $tp_result["sf_feb_b"];
-                                    //         $sf_mar_amount = $tp_result["sf_mar_b"];
-                                    //         $sf_apr_amount = $tp_result["sf_apr_b"];
-                                    //         $sf_may_amount = $tp_result["sf_may_b"];
-                                    //     }
-                                    //     else
-                                    //     {
-                                    //         $sf_ue_amount = $tp_result["sf_ue_c"];
-                                    //         $sf_aug_amount = $tp_result["sf_aug_c"];
-                                    //         $sf_sep_amount = $tp_result["sf_sep_c"];
-                                    //         $sf_oct_amount = $tp_result["sf_oct_c"];
-                                    //         $sf_nov_amount = $tp_result["sf_nov_c"];
-                                    //         $sf_dec_amount = $tp_result["sf_dec_c"];
-                                    //         $sf_jan_amount = $tp_result["sf_jan_c"];
-                                    //         $sf_feb_amount = $tp_result["sf_feb_c"];
-                                    //         $sf_mar_amount = $tp_result["sf_mar_c"];
-                                    //         $sf_apr_amount = $tp_result["sf_apr_c"];
-                                    //         $sf_may_amount = $tp_result["sf_may_c"];
-                                    //     }
-                                    //     if (trim($_POST["modules_ebook"]) == 'A')
-                                    //     {
-                                    //         $me_ue_amount = $tp_result["me_ue_a"];
-                                    //         $me_aug_amount = $tp_result["me_aug_a"];
-                                    //         $me_sep_amount = $tp_result["me_sep_a"];
-                                    //         $me_oct_amount = $tp_result["me_oct_a"];
-                                    //         $me_nov_amount = $tp_result["me_nov_a"];
-                                    //         $me_dec_amount = $tp_result["me_dec_a"];
-                                    //         $me_jan_amount = $tp_result["me_jan_a"];
-                                    //         $me_feb_amount = $tp_result["me_feb_a"];
-                                    //         $me_mar_amount = $tp_result["me_mar_a"];
-                                    //         $me_apr_amount = $tp_result["me_apr_a"];
-                                    //         $me_may_amount = $tp_result["me_may_a"];
-                                    //     }
-                                    //     else
-                                    //     {
-                                    //         $me_ue_amount = $tp_result["me_ue_b"];
-                                    //         $me_aug_amount = $tp_result["me_aug_b"];
-                                    //         $me_sep_amount = $tp_result["me_sep_b"];
-                                    //         $me_oct_amount = $tp_result["me_oct_b"];
-                                    //         $me_nov_amount = $tp_result["me_nov_b"];
-                                    //         $me_dec_amount = $tp_result["me_dec_b"];
-                                    //         $me_jan_amount = $tp_result["me_jan_b"];
-                                    //         $me_feb_amount = $tp_result["me_feb_b"];
-                                    //         $me_mar_amount = $tp_result["me_mar_b"];
-                                    //         $me_apr_amount = $tp_result["me_apr_b"];
-                                    //         $me_may_amount = $tp_result["me_may_b"];
-                                    //     }
-                                    //     query($connect, "INSERT INTO $AD_TABLE (admission_no, sf_plan, sf_amount, me_plan, me_amount, sf_ue_amount, sf_aug_amount, sf_sep_amount,
-                                    //     sf_oct_amount, sf_nov_amount, sf_dec_amount, sf_jan_amount, sf_feb_amount, sf_mar_amount, sf_apr_amount, sf_may_amount,
-                                    //     me_ue_amount, me_aug_amount, me_sep_amount, me_oct_amount, me_nov_amount, me_dec_amount, me_jan_amount, me_feb_amount,
-                                    //     me_mar_amount, me_apr_amount, me_may_amount) VALUES 
-                                    //     ('".$admission_no."', '".$school_fees."', '".$sf_amount."', '".$modules_ebook."', '".$me_amount."',
-                                    //     '".$sf_ue_amount."', '".$sf_aug_amount."', '".$sf_sep_amount."', '".$sf_oct_amount."', '".$sf_nov_amount."', '".$sf_dec_amount."',
-                                    //     '".$sf_jan_amount."', '".$sf_feb_amount."', '".$sf_mar_amount."', '".$sf_apr_amount."', '".$sf_may_amount."',
-                                    //     '".$me_ue_amount."', '".$me_aug_amount."', '".$me_sep_amount."', '".$me_oct_amount."', '".$me_nov_amount."', '".$me_dec_amount."',
-                                    //     '".$me_jan_amount."', '".$me_feb_amount."', '".$me_mar_amount."', '".$me_apr_amount."', '".$me_may_amount."' ) ");
-                                    // }
+                                    
                 
                                     $create = query($connect, "INSERT INTO $ADMISSION_TABLE (school_year, semester, admission_no, avatar, student_status, grade_level, strand_id, 
                                     lrn, last_name, first_name, middle_name, extension_name, 
-                                    address, email, contact, date_birth, sex, nationality, last_attended, g_fullname, g_contact, g_relationship, g_occupation, g_address, 
+                                    address, email, contact, date_birth, sex, nationality, last_attended, g_fullname, g_contact, g_relationship, g_address, 
                                     status, 
                                     date_created, time_created) VALUES 
                                     ('".$school_year."', '".$semester."', '".$admission_no."', '".$avatar."', '".trim($_POST["student_status"])."', 
@@ -1697,7 +1334,7 @@ if(isset($_POST['btn_action']))
                                     '".trim($student["sex"])."', 
                                     '".trim($student["nationality"])."', '".trim($student["last_attended"])."', '".trim($student["g_fullname"])."', 
                                     '".trim($student["g_contact"])."', '".trim($student["g_relationship"])."', 
-                                    '".trim($student["g_occupation"])."', '".trim($student["g_address"])."', 
+                                    '".trim($student["g_address"])."', 
                                     'Pending',
                                     '".date("m-d-Y")."', '".date("h:i A")."') ");
                                     if ($create == true)
@@ -1715,27 +1352,7 @@ if(isset($_POST['btn_action']))
                                             <br>';
                                         }
                                         
-                                        // $requirements = '';
-                                        // if ($report_card1 != '')
-                                        // {
-                                        //     $requirements .= '- SF9 (Report Card)<br>';
-                                        // }
-                                        // if ($form_1371 != '')
-                                        // {
-                                        //     $requirements .= '- SF10 (Form 137)<br>';
-                                        // }
-                                        // if ($psa != '')
-                                        // {
-                                        //     $requirements .= '- PSA Birth Certificate<br>';
-                                        // }
-                                        // if ($good_moral != '')
-                                        // {
-                                        //     $requirements .= '- Good Moral Certificate<br>';
-                                        // }
-                                        // if ($certificate != '')
-                                        // {
-                                        //     $requirements .= '- Certificate of No Financial Obligation';
-                                        // }
+                                        
                 
                                         // send email 
                                         $mail = send_mail(trim($_POST["email"]), 
@@ -1789,12 +1406,13 @@ if(isset($_POST['btn_action']))
                         $output['message'] = 'LRN does not exist.';
                     }
                 }
-            }
-            else
-            {
-                $output['status'] = false;
-                $output['message'] = 'Please upload a recent school ID.';
-            }
+
+            // }
+            // else
+            // {
+            //     $output['status'] = false;
+            //     $output['message'] = 'Please upload a recent school ID.';
+            // }
         }
         else
         {
@@ -1932,87 +1550,7 @@ if(isset($_POST['btn_action']))
             WHERE id = '".$_POST['id']."' ");
             if ($update == true)
             {
-                // $connect->commit();
-                // $output['status'] = true;
-                // $output['message'] = 'Scheduled successfully.';
-
-                // $total_amount = number_format(floatval($student["sf_amount"]) + floatval($student["me_amount"]), 2, ".", ",");
-                // if ($student["payment_method"] == 'Installment')
-                // {
-                //     $tuition = fetch_row($connect, "SELECT * FROM $AD_TABLE WHERE admission_no = '".$student["admission_no"]."' ");
-
-                //     $table = '<br><table style="border: 1px solid black; width: 40%; border-collapse: collapse;">
-                //         <thead>
-                //             <tr>
-                //                 <th style="border: 1px solid black;"></th>
-                //                 <th style="border: 1px solid black; text-align: right;">School Fees</th>
-                //                 <th style="border: 1px solid black; text-align: right;">Modules & E-Books</th>
-                //             </tr>
-                //         </thead>
-                //         <tbody>
-                //             <tr>
-                //                 <td style="border: 1px solid black;">Upon Enrollment</td>
-                //                 <th style="border: 1px solid black; text-align: right;">'.number_format($tuition["sf_ue_amount"], 2, ".", ",").'</th>
-                //                 <th style="border: 1px solid black; text-align: right;">'.number_format($tuition["me_ue_amount"], 2, ".", ",").'</th>
-                //             </tr>
-                //             <tr>
-                //                 <td style="border: 1px solid black;">AUGUST</td>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["sf_aug_amount"], 2, ".", ",").'</th>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["me_aug_amount"], 2, ".", ",").'</th>
-                //             </tr>
-                //             <tr>
-                //                 <td style="border: 1px solid black;">SEPTEMBER</td>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["sf_sep_amount"], 2, ".", ",").'</th>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["me_sep_amount"], 2, ".", ",").'</th>
-                //             </tr>
-                //             <tr>
-                //                 <td style="border: 1px solid black;">OCTOBER</td>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["sf_oct_amount"], 2, ".", ",").'</th>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["me_oct_amount"], 2, ".", ",").'</th>
-                //             </tr>
-                //             <tr>
-                //                 <td style="border: 1px solid black;">NOVEMBER</td>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["sf_nov_amount"], 2, ".", ",").'</th>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["me_nov_amount"], 2, ".", ",").'</th>
-                //             </tr>
-                //             <tr>
-                //                 <td style="border: 1px solid black;">DECEMBER</td>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["sf_dec_amount"], 2, ".", ",").'</th>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["me_dec_amount"], 2, ".", ",").'</th>
-                //             </tr>
-                //             <tr>
-                //                 <td style="border: 1px solid black;">JANUARY</td>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["sf_jan_amount"], 2, ".", ",").'</th>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["me_jan_amount"], 2, ".", ",").'</th>
-                //             </tr>
-                //             <tr>
-                //                 <td style="border: 1px solid black;">FEBRUARY</td>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["sf_feb_amount"], 2, ".", ",").'</th>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["me_feb_amount"], 2, ".", ",").'</th>
-                //             </tr>
-                //             <tr>
-                //                 <td style="border: 1px solid black;">MARCH</td>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["sf_mar_amount"], 2, ".", ",").'</th>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["me_mar_amount"], 2, ".", ",").'</th>
-                //             </tr>
-                //             <tr>
-                //                 <td style="border: 1px solid black;">APRIL</td>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["sf_apr_amount"], 2, ".", ",").'</th>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["me_apr_amount"], 2, ".", ",").'</th>
-                //             </tr>
-                //             <tr>
-                //                 <td style="border: 1px solid black;">MAY</td>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["sf_may_amount"], 2, ".", ",").'</th>
-                //                 <th style="border: 1px solid black; text-align: right;"> '.number_format($tuition["me_may_amount"], 2, ".", ",").'</th>
-                //             </tr>
-                //         </tbody>
-                //     </table>';
-                //     $message = '<br><br>Payment Method: <b>INSTALLMENT</b><br>Tuition Fee Amount: <b> '.$total_amount.'</b><br>'.$table;
-                // }
-                // else
-                // {
-                //     $message = '<br><br>Payment Method: <b>CASH</b><br>Tuition Fee Amount: <b> '.$total_amount.'</b><br><br>';
-                // }
+                
 
                 //send email add if cash -> tuition fee then if installment, tuition table
                 $mail = send_mail(trim($student["email"]), 
@@ -2890,7 +2428,7 @@ if(isset($_POST['btn_action']))
         $output['g_fullname'] = $result["g_fullname"];
         $output['g_contact'] = $result["g_contact"];
         $output['g_relationship'] = $result["g_relationship"];
-        $output['g_occupation'] = $result["g_occupation"];
+        // $output['g_occupation'] = $result["g_occupation"];
         $output['g_address'] = $result["g_address"];
 		echo json_encode($output);
     }
@@ -2956,7 +2494,7 @@ if(isset($_POST['btn_action']))
                     g_fullname = '".trim($_POST["g_fullname"])."',
                     g_contact = '".trim($_POST["g_contact"])."',
                     g_relationship = '".trim($_POST["g_relationship"])."',
-                    g_occupation = '".trim($_POST["g_occupation"])."',
+                    
                     g_address = '".trim($_POST["g_address"])."'
                 WHERE id = '".$_POST['id']."' ");
             }
@@ -2982,7 +2520,7 @@ if(isset($_POST['btn_action']))
                     g_fullname = '".trim($_POST["g_fullname"])."',
                     g_contact = '".trim($_POST["g_contact"])."',
                     g_relationship = '".trim($_POST["g_relationship"])."',
-                    g_occupation = '".trim($_POST["g_occupation"])."',
+                    
                     g_address = '".trim($_POST["g_address"])."'
                 WHERE id = '".$_POST['id']."' ");
             }
@@ -3505,7 +3043,7 @@ if(isset($_POST['btn_action']))
 
                 $admission = $image.' &nbsp; '.$button;
     
-                $applicant = "".$row['last_name'].", ".$row['first_name']." ".$row['middle_name']." ".$row['extension_name'];
+                $applicant = "<b>Name</b>: ".$row['last_name'].", ".$row['first_name']." ".$row['middle_name']." ".$row['extension_name'];
     
                 $guardian = "<b>Name</b>: ".$row['g_fullname'];
 
@@ -3526,7 +3064,7 @@ if(isset($_POST['btn_action']))
                 ."<br><b>Status</b>: ".$row['student_status']
                 ."<br><b>Date</b>: ".$row['date_created'].$button;
     
-                $applicant = "".$row['last_name'].", ".$row['first_name']." ".$row['middle_name']." ".$row['extension_name']
+                $applicant = "<b>Name</b>: ".$row['last_name'].", ".$row['first_name']." ".$row['middle_name']." ".$row['extension_name']
                 ."<br><b>Date of Birth</b>: ".$row['date_birth']
                 ."<br><b>Sex</b>: ".$row['sex']
                 ."<br><b>Email</b>: ".$row['email']
@@ -3538,7 +3076,7 @@ if(isset($_POST['btn_action']))
                 $guardian = "<b>Name</b>: ".$row['g_fullname']
                 ."<br><b>Contact</b>: ".$row['g_contact']
                 ."<br><b>Relationship</b>: ".$row['g_relationship']
-                ."<br><b>Occupation</b>: ".$row['g_occupation']
+                
                 ."<br><b>Address</b>: ".$row['g_address'];
     
                 // REMOVE PAYMENT COLUMN IN ARCHIVED TAB
@@ -3963,9 +3501,9 @@ if(isset($_POST['btn_action']))
             ."<br><b>Status</b>: ".$row['student_status']
             ."<br><b>Date</b>: ".$row['date_created'];
 
-            $applicant = "".$row['last_name'].", ".$row['first_name']." ".$row['middle_name']." ".$row['extension_name']
+            $applicant = "<b>Name</b>: ".$row['last_name'].", ".$row['first_name']." ".$row['middle_name']." ".$row['extension_name']
             ."<br><b>Date of Birth</b>: ".$row['date_birth']
-            ."<br><b>Sex</b>: ".$row['sex']
+            ."<br><b>Sex</b>: ".$row['sex'] 
             ."<br><b>Email</b>: ".$row['email']
             ."<br><b>Contact</b>: ".$row['contact']
             ."<br><b>Address</b>: ".$row['address']
@@ -3975,7 +3513,7 @@ if(isset($_POST['btn_action']))
             $guardian = "<b>Name</b>: ".$row['g_fullname']
             ."<br><b>Contact</b>: ".$row['g_contact']
             ."<br><b>Relationship</b>: ".$row['g_relationship']
-            ."<br><b>Occupation</b>: ".$row['g_occupation']
+            
             ."<br><b>Address</b>: ".$row['g_address'];
 
 

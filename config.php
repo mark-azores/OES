@@ -189,7 +189,7 @@ try {
                 `g_fullname` VARCHAR(50) DEFAULT NULL,
                 `g_contact` VARCHAR(15) DEFAULT NULL,
                 `g_relationship` VARCHAR(15) DEFAULT NULL,
-                `g_occupation` VARCHAR(30) DEFAULT NULL,
+                -- `g_occupation` VARCHAR(30) DEFAULT NULL,
                 `g_address` VARCHAR(100) DEFAULT NULL,
                 `status` VARCHAR(15) DEFAULT NULL,
                 `date_scheduled` VARCHAR(15) DEFAULT NULL,

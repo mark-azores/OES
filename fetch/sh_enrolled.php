@@ -44,7 +44,7 @@ if ($result) {
 
             $sub_array[] = $image;
 
-            $sub_array[] = "".$row['last_name'].", ".$row['first_name']." ".$row['middle_name']." ".$row['extension_name'];
+            $sub_array[] = "<b>Name</b>: ".$row['last_name'].", ".$row['first_name']." ".$row['middle_name']." ".$row['extension_name'];
             $sub_array[] = "<b>Name</b>: ".$row['g_fullname'];
 
             $sub_array[] = isset($row['payment_method']) ? "<b>Payment</b>: ".$row['payment_method'] : "<b>Payment</b>: Not Available";
@@ -68,7 +68,7 @@ if ($result) {
                 <i class="fa fa-list"></i> Requirements
             </a>';
 
-            $sub_array[] = "".$row['last_name'].", ".$row['first_name']." ".$row['middle_name']." ".$row['extension_name']
+            $sub_array[] = "<b>Name</b>: ".$row['last_name'].", ".$row['first_name']." ".$row['middle_name']." ".$row['extension_name']
             ."<br><b>Date of Birth</b>: ".$row['date_birth']
             ."<br><b>Sex</b>: ".$row['sex']
             ."<br><b>Email</b>: ".$row['email']
@@ -79,7 +79,7 @@ if ($result) {
             $sub_array[] = "<b>Name</b>: ".$row['g_fullname']
             ."<br><b>Contact</b>: ".$row['g_contact']
             ."<br><b>Relationship</b>: ".$row['g_relationship']
-            ."<br><b>Occupation</b>: ".$row['g_occupation']
+            // ."<br><b>Occupation</b>: ".$row['g_occupation']
             ."<br><b>Address</b>: ".$row['g_address'];
 
             // $sub_array[] = isset($row['payment_method']) ? "<b>Payment</b>: ".$row['payment_method'] : "<b>Payment</b>: Not Available";

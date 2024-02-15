@@ -278,9 +278,9 @@ include('footer.php');
                                 <div class="form-group col-12 col-md-6">
                                     <input type="text" class="form-control g_relationship" placeholder="Relationship" disabled />
                                 </div>
-                                <div class="form-group col-12 col-md-6">
+                                <!-- <div class="form-group col-12 col-md-6">
                                     <input type="text" class="form-control g_occupation" placeholder="Occupation" disabled />
-                                </div>
+                                </div> -->
                                 <div class="form-group col-12 col-md-12">
                                     <textarea class="form-control g_address" placeholder="Complete Address" disabled ></textarea>
                                 </div>
@@ -512,7 +512,7 @@ include('footer.php');
                     $('.g_fullname').val(data.g_fullname);
                     $('.g_contact').val(data.g_contact);
                     $('.g_relationship').val(data.g_relationship);
-                    $('.g_occupation').val(data.g_occupation);
+                    // $('.g_occupation').val(data.g_occupation);
                     $('.g_address').val(data.g_address);
 
                     $('#studentModal').modal('show');
