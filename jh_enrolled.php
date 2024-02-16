@@ -909,54 +909,7 @@ include('footer.php');
             })
         });
 
-        $(document).on('click', '.payment', function(){
-            id = $(this).attr("id");
-            var admission_no = $(this).attr("admission_no");
-            var sf = $(this).attr("sf");
-            var me = $(this).attr("me");
-            var status = $(this).attr("status");
-            $('#paymentModal').modal('show');
-            $('.modal-title').html("<i class='fa fa-file-invoice-dollar'></i> Payment");
-            $('#action_payment').html("<i class='fa fa-save'></i> Save");
-            $('#btn_action_payment').val('admission_payment');
-            $('#id_payment').val(admission_no);
-            loadTuition(admission_no,sf, me)
-            $('.btn_undo').addClass('hidden');
-            if (status !== '')
-            {
-                $('.btn_undo').removeClass('hidden').attr('id', admission_no);
-                $('#action_payment').attr('disabled','disabled');
-                $('#btn_complete').attr('disabled','disabled');
-                $('#btn_complete').attr('disabled','disabled');
-                $('#sf_ue_status').attr('disabled','disabled');
-                $('#sf_aug_status').attr('disabled','disabled');
-                $('#sf_sep_status').attr('disabled','disabled');
-                $('#sf_oct_status').attr('disabled','disabled');
-                $('#sf_nov_status').attr('disabled','disabled');
-                $('#sf_dec_status').attr('disabled','disabled');
-                $('#sf_jan_status').attr('disabled','disabled');
-                $('#sf_feb_status').attr('disabled','disabled');
-                $('#sf_mar_status').attr('disabled','disabled');
-                $('#sf_apr_status').attr('disabled','disabled');
-                $('#sf_may_status').attr('disabled','disabled');
-            }
-            else
-            {
-                $('#action_payment').removeAttr('disabled','disabled');
-                $('#btn_complete').removeAttr('disabled','disabled');
-                $('#sf_ue_status').removeAttr('disabled','disabled');
-                $('#sf_aug_status').removeAttr('disabled','disabled');
-                $('#sf_sep_status').removeAttr('disabled','disabled');
-                $('#sf_oct_status').removeAttr('disabled','disabled');
-                $('#sf_nov_status').removeAttr('disabled','disabled');
-                $('#sf_dec_status').removeAttr('disabled','disabled');
-                $('#sf_jan_status').removeAttr('disabled','disabled');
-                $('#sf_feb_status').removeAttr('disabled','disabled');
-                $('#sf_mar_status').removeAttr('disabled','disabled');
-                $('#sf_apr_status').removeAttr('disabled','disabled');
-                $('#sf_may_status').removeAttr('disabled','disabled');
-            }
-        });
+        
 
         var id ;
         var question ;

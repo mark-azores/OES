@@ -100,195 +100,12 @@ include('footer.php');
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-12 col-md-6 payment hidden">
+                        <div class="form-group col-12 col-md-12 payment hidden">
                             <select name="section_id" id="section_id" class="form-control" >
                                 <option value="">Section</option>
                             </select>
                         </div>
-                        <!-- <div class="form-group col-12 col-md-6 payment hidden">
-                            <select name="payment_method" id="payment_method" class="form-control" >
-                                <option value="Cash">Cash</option>
-                                <option value="Installment">Installment</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-12 col-md-6 payment hidden">
-                            <select name="school_fees" id="school_fees" class="form-control" disabled >
-                                <option value="">School Fees</option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-12 col-md-6 payment hidden">
-                            <select name="modules_ebook" id="modules_ebook" class="form-control" disabled >
-                                <option value="">Modules & E-Books</option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                            </select>
-                        </div> 
-                        <div class="form-group col-12 col-md-6 payment hidden">
-                            <select name="section_id" id="section_id" class="form-control" >
-                                <option value="">Section</option>
-                            </select>
-                        </div>
-                         <div class="form-group col-12 col-md-4 payment hidden">
-                            <select name="esc_payment" id="esc_payment" class="form-control"  >
-                                <option value="">Select ESC</option>
-                                <?php
-                                    $output = '';
-                                    $result = fetch_all($connect, "SELECT * FROM $TP_TABLE "); // show base on grade level required
-                                    foreach($result as $row)
-                                    {
-                                        $output .= '<option value="'.$row["sf_esc"].'">'.$row["high_school"].' - '.$row["sf_esc"].'</option>';
-                                    }
-                                    echo $output;
-                                ?>
-                            </select>
-                        </div>
-                         <div class="form-group col-12 col-md-4 payment hidden">
-                            <input type="number" min="0" name="esc_payment" id="esc_payment" class="form-control" placeholder="ESC Amount"  />
-                        </div>
-                        <div class="form-group col-12 col-md-4 payment hidden">
-                            <input type="text"  class="form-control tuition_fee" placeholder="Tuition Fee" disabled />
-                        </div>
-                        <div class="form-group col-12 col-md-4 payment hidden">
-                            <input type="text"  class="form-control total_fee" placeholder="Total" disabled />
-                        </div>
-                         <div class="form-group col-12 payment tuition hidden">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>School Fees</th>
-                                        <th>Modules & E-Books</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Upon Enrollment</td>
-                                        <td class="sf_ue_amount">0</td>
-                                        <td class="me_ue_amount">0</td>
-                                        <td>
-                                            <select name="sf_ue_status" id="sf_ue_status" class="form-control"  >
-                                                <option value="Not Paid">Not Paid</option>
-                                                <option value="Paid">Paid</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>AUGUST (1Q)</td>
-                                        <td class="sf_aug_amount">0</td>
-                                        <td class="me_aug_amount">0</td>
-                                        <td>
-                                            <select name="sf_aug_status" id="sf_aug_status" class="form-control"  >
-                                                <option value="Not Paid">Not Paid</option>
-                                                <option value="Paid">Paid</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>SEPTEMBER (1Q)</td>
-                                        <td class="sf_sep_amount">0</td>
-                                        <td class="me_sep_amount">0</td>
-                                        <td>
-                                            <select name="sf_sep_status" id="sf_sep_status" class="form-control"  >
-                                                <option value="Not Paid">Not Paid</option>
-                                                <option value="Paid">Paid</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>OCTOBER (1Q)</td>
-                                        <td class="sf_oct_amount">0</td>
-                                        <td class="me_oct_amount">0</td>
-                                        <td>
-                                            <select name="sf_oct_status" id="sf_oct_status" class="form-control"  >
-                                                <option value="Not Paid">Not Paid</option>
-                                                <option value="Paid">Paid</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>NOVEMBER (2Q)</td>
-                                        <td class="sf_nov_amount">0</td>
-                                        <td class="me_nov_amount">0</td>
-                                        <td>
-                                            <select name="sf_nov_status" id="sf_nov_status" class="form-control"  >
-                                                <option value="Not Paid">Not Paid</option>
-                                                <option value="Paid">Paid</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>DECEMBER (2Q)</td>
-                                        <td class="sf_dec_amount">0</td>
-                                        <td class="me_dec_amount">0</td>
-                                        <td>
-                                            <select name="sf_dec_status" id="sf_dec_status" class="form-control"  >
-                                                <option value="Not Paid">Not Paid</option>
-                                                <option value="Paid">Paid</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>JANUARY (2Q)</td>
-                                        <td class="sf_jan_amount">0</td>
-                                        <td class="me_jan_amount">0</td>
-                                        <td>
-                                            <select name="sf_jan_status" id="sf_jan_status" class="form-control"  >
-                                                <option value="Not Paid">Not Paid</option>
-                                                <option value="Paid">Paid</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>FEBRUARY (3Q)</td>
-                                        <td class="sf_feb_amount">0</td>
-                                        <td class="me_feb_amount">0</td>
-                                        <td>
-                                            <select name="sf_feb_status" id="sf_feb_status" class="form-control"  >
-                                                <option value="Not Paid">Not Paid</option>
-                                                <option value="Paid">Paid</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>MARCH (3Q)</td>
-                                        <td class="sf_mar_amount">0</td>
-                                        <td class="me_mar_amount">0</td>
-                                        <td>
-                                            <select name="sf_mar_status" id="sf_mar_status" class="form-control"  >
-                                                <option value="Not Paid">Not Paid</option>
-                                                <option value="Paid">Paid</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>APRIL (4Q)</td>
-                                        <td class="sf_apr_amount">0</td>
-                                        <td class="me_apr_amount">0</td>
-                                        <td>
-                                            <select name="sf_apr_status" id="sf_apr_status" class="form-control"  >
-                                                <option value="Not Paid">Not Paid</option>
-                                                <option value="Paid">Paid</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>MAY (4Q)</td>
-                                        <td class="sf_may_amount">0</td>
-                                        <td class="me_may_amount">0</td>
-                                        <td>
-                                            <select name="sf_may_status" id="sf_may_status" class="form-control"  >
-                                                <option value="Not Paid">Not Paid</option>
-                                                <option value="Paid">Paid</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div> -->
+                       
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-start">
@@ -668,10 +485,10 @@ include('footer.php');
             }
             else
             {
-                $('#addModal .modal-dialog').addClass('modal-lg');
+                $('#addModal .modal-dialog').addClass('modal-md');
                 $('#status').val('Payment');
-                $('.modal-title').html("<i class='fa fa-file-invoice-dollar'></i> Payment");
-                $('#action').html("<i class='fa fa-file-invoice-dollar'></i> Enroll");
+                $('.modal-title').html("<i class='fas fa-file-invoice'></i> Assign to Class Section");
+                $('#action').html("<i class='fas fa-file-invoice'></i> Enroll");
                 $('#action').val('admission_status');
                 $('#btn_action').val('admission_status');
                 $('.reason').addClass('hidden');

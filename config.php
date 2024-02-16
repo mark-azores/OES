@@ -40,7 +40,7 @@ try {
             );";
         $connect->exec($create);
         $password = password_hash('admin', PASSWORD_DEFAULT);
-        query($connect, "INSERT INTO $USER_TABLE ($USER_COLUMN) VALUES ('Administrator', 'adminadmin', '" . $password . "' , '', 'azoresmikeangelo@gmail.com', '', 'Superadmin', 'Active','" . date("m-d-Y h:i A") . "') ");
+        query($connect, "INSERT INTO $USER_TABLE ($USER_COLUMN) VALUES ('Administrator', 'adminadmin', '" . $password . "' , '', 'azoresmark04@gmail.com', '', 'Superadmin', 'Active','" . date("m-d-Y h:i A") . "') ");
     }
 
     $INSTRUCTOR_TABLE = 'instructors';
@@ -215,76 +215,7 @@ try {
         $connect->exec($create);
     }
 
-    $AD_TABLE = 'admission_tuition';
-    $query = "SHOW TABLES LIKE '$AD_TABLE'";
-    $statement = $connect->prepare($query);
-    $statement->execute();
-    if ($statement->rowCount() == 0) {
-        $create = "CREATE TABLE $AD_TABLE(
-                `id` INT(11) AUTO_INCREMENT PRIMARY KEY,
-                `admission_no` VARCHAR(255) DEFAULT NULL,
-                `sf_plan` VARCHAR(255) DEFAULT NULL,
-                `sf_amount` VARCHAR(255) DEFAULT 0,
-                `me_plan` VARCHAR(255) DEFAULT NULL,
-                `me_amount` VARCHAR(255) DEFAULT 0,
-
-                `sf_ue_amount` VARCHAR(255) DEFAULT 0,
-                `sf_ue_date_paid` VARCHAR(255) DEFAULT NULL,
-                `sf_aug_amount` VARCHAR(255) DEFAULT 0,
-                `sf_aug_date_paid` VARCHAR(255) DEFAULT NULL,
-                `sf_sep_amount` VARCHAR(255) DEFAULT 0,
-                `sf_sep_date_paid` VARCHAR(255) DEFAULT NULL,
-                `sf_oct_amount` VARCHAR(255) DEFAULT 0,
-                `sf_oct_date_paid` VARCHAR(255) DEFAULT NULL,
-                `sf_nov_amount` VARCHAR(255) DEFAULT 0,
-                `sf_nov_date_paid` VARCHAR(255) DEFAULT NULL,
-                `sf_dec_amount` VARCHAR(255) DEFAULT 0,
-                `sf_dec_date_paid` VARCHAR(255) DEFAULT NULL,
-                `sf_jan_amount` VARCHAR(255) DEFAULT 0,
-                `sf_jan_date_paid` VARCHAR(255) DEFAULT NULL,
-                `sf_feb_amount` VARCHAR(255) DEFAULT 0,
-                `sf_feb_date_paid` VARCHAR(255) DEFAULT NULL,
-                `sf_mar_amount` VARCHAR(255) DEFAULT 0,
-                `sf_mar_date_paid` VARCHAR(255) DEFAULT NULL,
-                `sf_apr_amount` VARCHAR(255) DEFAULT 0,
-                `sf_apr_date_paid` VARCHAR(255) DEFAULT NULL,
-                `sf_may_amount` VARCHAR(255) DEFAULT 0,
-                `sf_may_date_paid` VARCHAR(255) DEFAULT NULL,
-
-                `me_ue_amount` VARCHAR(255) DEFAULT 0,
-                `me_ue_date_paid` VARCHAR(255) DEFAULT NULL,
-                `me_aug_amount` VARCHAR(255) DEFAULT 0,
-                `me_aug_date_paid` VARCHAR(255) DEFAULT NULL,
-                `me_sep_amount` VARCHAR(255) DEFAULT 0,
-                `me_sep_date_paid` VARCHAR(255) DEFAULT NULL,
-                `me_oct_amount` VARCHAR(255) DEFAULT 0,
-                `me_oct_date_paid` VARCHAR(255) DEFAULT NULL,
-                `me_nov_amount` VARCHAR(255) DEFAULT 0,
-                `me_nov_date_paid` VARCHAR(255) DEFAULT NULL,
-                `me_dec_amount` VARCHAR(255) DEFAULT 0,
-                `me_dec_date_paid` VARCHAR(255) DEFAULT NULL,
-                `me_jan_amount` VARCHAR(255) DEFAULT 0,
-                `me_jan_date_paid` VARCHAR(255) DEFAULT NULL,
-                `me_feb_amount` VARCHAR(255) DEFAULT 0,
-                `me_feb_date_paid` VARCHAR(255) DEFAULT NULL,
-                `me_mar_amount` VARCHAR(255) DEFAULT 0,
-                `me_mar_date_paid` VARCHAR(255) DEFAULT NULL,
-                `me_apr_amount` VARCHAR(255) DEFAULT 0,
-                `me_apr_date_paid` VARCHAR(255) DEFAULT NULL,
-                `me_may_amount` VARCHAR(255) DEFAULT 0,
-                `me_may_date_paid` VARCHAR(255) DEFAULT NULL,
-
-                INDEX (`id`)
-            );";
-        $connect->exec($create);
-    }
-
-    // `net_total` VARCHAR(255) DEFAULT NULL,
-    // `total_sf_a` VARCHAR(255) DEFAULT NULL,
-    // `total_sf_b` VARCHAR(255) DEFAULT NULL,
-    // `total_sf_c` VARCHAR(255) DEFAULT NULL,
-    // `total_me_a` VARCHAR(255) DEFAULT NULL,
-    // `total_me_b` VARCHAR(255) DEFAULT NULL,
+    
 
     $TP_TABLE = 'tuition_plan';
     $query = "SHOW TABLES LIKE '$TP_TABLE'";
